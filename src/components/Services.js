@@ -1,5 +1,7 @@
 import React from 'react';
 import img from '../images/kitchen.jpeg'; 
+import img2 from '../images/bathroom.jpeg'; 
+import img3 from '../images/vinyl-floor.jpg'; 
 
 
 const Services = () => {
@@ -22,7 +24,7 @@ const Services = () => {
                             <div className="bg-white transition-all ease-in-out duration-400  overflow-hidden text-gray-700 hover:bg-gray-500 hover:text-white rounded-lg shadow-2xl p-3 group">
                                 <div className="m-2 text-justify text-sm">
                                 <img alt="card img" className="rounded-t group-hover:scale-[1.15] transition duration-1000 ease-in-out" src={img} />
-                                    <h2 className="font-semibold my-6 text-2xl text-center">Web Development</h2>
+                                    <h2 className="font-semibold my-6 text-2xl text-center">Kitchen Remodeling</h2>
                                     <p className="text-md font-medium">
                                         We specialize in creating and optimizing high-quality, custom websites for businesses and organizations of all sizes. Building mobile-friendly and easy-to-use websites and applications for clients.
                                     </p>
@@ -31,8 +33,8 @@ const Services = () => {
 
                             <div className="bg-white transition-all ease-in-out duration-400  overflow-hidden text-gray-700 hover:bg-gray-500 hover:text-white rounded-lg shadow-2xl p-3 group">
                                 <div className="m-2 text-justify text-sm">
-                                <img alt="card img" className="rounded-t group-hover:scale-[1.15] transition duration-1000 ease-in-out" src={img} />
-                                    <h2 className="font-semibold my-6 text-2xl text-center">Mobile App Development</h2>
+                                <img alt="card img" className="rounded-t group-hover:scale-[1.15] transition duration-1000 ease-in-out" src={img2} />
+                                    <h2 className="font-semibold my-6 text-2xl text-center">Bathroom Remodeling</h2>
                                     <p className="text-md font-medium">
                                         We develop high-quality, custom cross-platform mobile applications that are robust and optimized for performance, scalability, and accessibility.
                                     </p>
@@ -41,8 +43,8 @@ const Services = () => {
 
                             <div className="bg-white transition-all ease-in-out duration-400  overflow-hidden text-gray-700 hover:bg-gray-500 hover:text-white rounded-lg shadow-2xl p-3 group">
                                 <div className="m-2 text-justify text-sm">
-                                    <img alt="card img" className="rounded-t group-hover:scale-[1.15] transition duration-1000 ease-in-out" src={img} />
-                                    <h2 className="font-semibold my-6 text-2xl text-center ">Domain and Hosting Services</h2>
+                                <img alt="card img" className="rounded-t group-hover:scale-[1.15] transition duration-1000 ease-in-out" src={img3} />
+                                <h2 className="font-semibold my-6 text-2xl text-center ">Laundry Room Remodeling</h2>
                                     <p className="text-md font-medium">
                                         We provide domain registration and web hosting services to individuals and organizations to enable them gain visibility in the digital space.
                                     </p>
@@ -52,17 +54,27 @@ const Services = () => {
                             <div className="bg-white transition-all ease-in-out duration-400  overflow-hidden text-gray-700 hover:bg-gray-500 hover:text-white rounded-lg shadow-2xl p-3 group">
                                 <div className="m-2 text-justify text-sm">
                                 <img alt="card img" className="rounded-t group-hover:scale-[1.15] transition duration-1000 ease-in-out" src={img} />
-                                    <h2 className="font-semibold my-6 text-2xl text-center ">General IT Consultations</h2>
+                                    <h2 className="font-semibold my-6 text-2xl text-center ">Flooring</h2>
                                     <p className="text-md font-medium">
                                         Our IT consultations service provides expert guidance and support for businesses and individuals looking to optimize their technology solutions.
                                     </p>
                                 </div>
-                            </div>                    
+                            </div>  
+
+                            <div className="bg-white transition-all ease-in-out duration-400  overflow-hidden text-gray-700 hover:bg-gray-500 hover:text-white rounded-lg shadow-2xl p-3 group">
+                                <div className="m-2 text-justify text-sm">
+                                <img alt="card img" className="rounded-t group-hover:scale-[1.15] transition duration-1000 ease-in-out" src={img} />
+                                    <h2 className="font-semibold my-6 text-2xl text-center ">Quartz</h2>
+                                    <p className="text-md font-medium">
+                                        Our IT consultations service provides expert guidance and support for businesses and individuals looking to optimize their technology solutions.
+                                    </p>
+                                </div>
+                            </div>                  
                         </div>
                     </div>
             </section>
 
-            <section>
+            {/* <section>
                 <div className="m-auto max-w-6xl p-2 md:p-12 h-5/6">
                     <div className="flex flex-col-reverse lg:flex-row py-8 justify-between lg:text-left" data-aos="zoom-out">
                         <div className="lg:w-1/2 flex flex-col lg:mx-4 justify-center">
@@ -88,7 +100,7 @@ const Services = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
         </div>
     )
 }

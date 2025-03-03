@@ -14,6 +14,11 @@ import DemoProduct from './pages/DemoProduct';
 
 import {useDocTitle} from './components/CustomHook';
 import ScrollToTop from './components/ScrollToTop';
+import Kitchen from './pages/Services/Kitchen';
+import Bathroom from './pages/Services/Bathroom';
+import Laundry from './pages/Services/Laundry';
+import Quartz from './pages/Services/Quartz';
+import Flooring from './pages/Services/Flooring';
 
 function App() {
   useEffect(() => {
@@ -40,6 +45,11 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/get-demo" element={<DemoProduct />} /> 
+            <Route path= "/kitchen" element={<Kitchen/>}/>
+            <Route path= "/bathroom" element={<Bathroom/>}/>
+            <Route path= "/laundry" element={<Laundry/>}/>
+            <Route path= "/flooring" element={<Flooring/>}/>
+            <Route path= "/quartz" element={<Quartz/>}/>
           </Routes>
         </ScrollToTop>
       </Router>

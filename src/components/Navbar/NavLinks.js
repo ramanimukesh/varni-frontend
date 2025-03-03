@@ -1,62 +1,132 @@
 import React from "react";
-import { HashLink } from "react-router-hash-link";
+import { Link } from "react-router-dom";
 
 const NavLinks = () => {
+  // Smooth scroll function
+  const smoothScroll = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   return (
     <>
-      <HashLink className="px-4 font-extrabold text-gray-500 hover:text-blue-900" smooth to="/#home">
+      <Link
+        className="px-4 font-extrabold text-blue-900 hover:text-blue-900"
+        to="/"
+        onClick={() => smoothScroll("home")}
+      >
         HOME
-      </HashLink>
-      <HashLink className="px-4 font-extrabold text-gray-500 hover:text-blue-900" smooth to="/#about">
+      </Link>
+      <Link
+        className="px-4 font-extrabold text-blue-900 hover:text-blue-900"
+        to="/"
+        onClick={() => smoothScroll("about")}
+      >
         ABOUT
-      </HashLink>
+      </Link>
 
       {/* Wrap both button and dropdown inside the same "group" div */}
       <div className="relative inline-block group">
-        {/* Add HashLink here to navigate to the 'services' section */}
-        <HashLink to="/#services" smooth>
-          <button className="px-4 font-extrabold text-gray-500 hover:text-blue-900">
+        <Link
+          to="/service"
+          onClick={() => smoothScroll("services")}
+        >
+          <button className="px-4 font-extrabold text-blue-900 hover:text-blue-900">
             SERVICES
           </button>
-        </HashLink>
+        </Link>
 
-        <ul className="hidden group-hover:block absolute left-0 mt-2 w-40 bg-white border shadow-md rounded-md">
+        <ul className="hidden group-hover:block absolute left-0 mt-2 w-40 ">
           <li>
-            <HashLink className="block px-4 py-2 hover:bg-gray-100" smooth to="/#service1">
-              Service 1
-            </HashLink>
+            <Link
+              className="block px-4 py-2 hover:bg-gray-100"
+              to="/kitchen"
+              onClick={() => smoothScroll("service1")}
+            >
+              Kitchen Remodeling
+            </Link>
           </li>
           <li>
-            <HashLink className="block px-4 py-2 hover:bg-gray-100" smooth to="/#service2">
-              Service 2
-            </HashLink>
+            <Link
+              className="block px-4 py-2 hover:bg-gray-100"
+              to="/bathroom"
+              onClick={() => smoothScroll("service2")}
+            >
+              Bathroom Remodeling
+            </Link>
           </li>
           <li>
-            <HashLink className="block px-4 py-2 hover:bg-gray-100" smooth to="/#service3">
-              Service 3
-            </HashLink>
+            <Link
+              className="block px-4 py-2 hover:bg-gray-100"
+              to="/laundry"
+              onClick={() => smoothScroll("service3")}
+            >
+              Laundry Room Remodeling
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="block px-4 py-2 hover:bg-gray-100"
+              to="/flooring"
+              onClick={() => smoothScroll("service4")}
+            >
+              Flooring
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="block px-4 py-2 hover:bg-gray-100"
+              to="/quartz"
+              onClick={() => smoothScroll("service5")}
+            >
+              Quartz
+            </Link>
           </li>
         </ul>
       </div>
 
-      <HashLink className="px-4 font-extrabold text-gray-500 hover:text-blue-900" to="/">
+      <Link
+        className="px-4 font-extrabold text-blue-900 hover:text-blue-900"
+        to="/recent-projects"
+      >
         RECENT PROJECTS
-      </HashLink>
-      <HashLink className="px-4 font-extrabold text-gray-500 hover:text-blue-900" to="/">
+      </Link>
+      <Link
+        className="px-4 font-extrabold text-blue-900 hover:text-blue-900"
+        to="/"
+        onClick={() => smoothScroll("portfolio")}
+      >
         REVIEWS
-      </HashLink>
-      <HashLink className="px-4 font-extrabold text-gray-500 hover:text-blue-900" to="/">
+      </Link>
+      <Link
+        className="px-4 font-extrabold text-blue-900 hover:text-blue-900"
+        to="/blog"
+      >
         BLOG
-      </HashLink>
-      <HashLink className="px-4 font-extrabold text-gray-500 hover:text-blue-900" to="/">
+      </Link>
+      <Link
+        className="px-4 font-extrabold text-blue-900 hover:text-blue-900"
+        to="/press"
+      >
         PRESS
-      </HashLink>
-      <HashLink className="px-4 font-extrabold text-gray-500 hover:text-blue-900" to="/contact#contact">
+      </Link>
+      <Link
+        className="px-4 font-extrabold text-blue-900 hover:text-blue-900"
+        to="/contact"
+      >
         CONTACT
-      </HashLink>
-      <HashLink className="text-white bg-blue-900 hover:bg-blue-800 inline-flex items-center justify-center w-auto px-6 py-3 shadow-xl rounded-xl" smooth to="/get-demo#demo">
-        Demo our products
-      </HashLink>
+      </Link>
+      <Link
+        className="text-white bg-blue-900 hover:bg-blue-800 inline-flex items-center justify-center w-auto px-6 py-3 shadow-xl rounded-xl"
+        to="/get-demo"
+      >
+        444-444-4444
+      </Link>
     </>
   );
 };
