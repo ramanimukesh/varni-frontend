@@ -2,7 +2,7 @@ const Quartz = () => {
 
     return(
         <>
-        <h1>Hey Quartz</h1>
+        <h1>Quartz services coming soon</h1>
         </>
     )
 }

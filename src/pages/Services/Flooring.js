@@ -2,7 +2,7 @@ const Flooring = () => {
 
     return(
         <>
-        <h1>Hey Flooring</h1>
+        <h1>Flooring services coming soon</h1>
         </>
     )
 }

@@ -87,7 +87,7 @@ const Kitchen = () => {
             </h3>
             <div>
               <p className="my-3 text-xl text-gray-600 font-semibold">
-                VARNI Kitchens and Remodeling is recognized as Georgia’s most
+                Swaminarayan Construction Kitchens and Remodeling is recognized as Georgia’s most
                 skilled and detail-oriented kitchen installation expert. Based
                 in Atlanta, GA, our team of carpenters brings over 5 years of
                 combined experience to every project. Founded by a dedicated
@@ -95,7 +95,7 @@ const Kitchen = () => {
                 insured remodeling contractor specializing in kitchen
                 remodeling, bathroom remodeling, and flooring. For years, we’ve
                 been transforming homes with stunning kitchen and bathroom
-                designs that exceed expectations. At VARNI, we pride ourselves
+                designs that exceed expectations. At Swaminarayan Construction, we pride ourselves
                 on offering exceptional prices and top-notch installation
                 services for cabinets, countertops, and flooring.
               </p>

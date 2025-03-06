@@ -2,7 +2,7 @@ const Bathroom = () => {
 
     return(
         <>
-        <h1>Hey Bathroom</h1>
+        <h1>Bathroom services coming soon</h1>
         </>
     )
 }
