@@ -9,10 +9,10 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
-.hero {
+/* .hero {
   background: url(./images/hero-bg.svg) top center no-repeat;
   background-size: cover;
-}
+} */
 
 .footer {
   background: url(./images/footer.svg) top center no-repeat;

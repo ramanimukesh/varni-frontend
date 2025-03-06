@@ -44,19 +44,19 @@ const Footer = () => {
                         <h6 className="text-[#013289] text-xl font-bold mb-4">OUR SERVICES</h6>
                         <ul className="text-md">
                         <li className="mb-2">
-                            <Link to="#" className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out">Kitchen Remodeling</Link>
+                            <Link to="/kitchen" className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out">Kitchen Remodeling</Link>
                         </li>
                         <li className="mb-2">
-                            <Link to="#" className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out">Bathroom Remodeling</Link>
+                            <Link to="/bathroom" className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out">Bathroom Remodeling</Link>
                         </li>
                         <li className="mb-2">
-                            <Link to="#" className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out">Laundry Room Remodeling</Link>
+                            <Link to="/laundry" className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out">Laundry Room Remodeling</Link>
                         </li>
                         <li className="mb-2">
-                            <Link to="#" className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out">Flooring</Link>
+                            <Link to="/flooring" className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out">Flooring</Link>
                         </li>
                         <li className="mb-2">
-                            <Link to="#" className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out">Quartz</Link>
+                            <Link to="/quartz" className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out">Quartz</Link>
                         </li>
                         </ul>
                     </div>
