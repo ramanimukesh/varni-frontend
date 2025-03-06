@@ -10,6 +10,7 @@ import img5 from "../../images/Kitchen/kitchen4.jpeg"; // Ensure this file exist
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Footer from "../../components/Footer";
 
 const Kitchen = () => {
   const settings = {
@@ -224,6 +225,109 @@ const Kitchen = () => {
           </div>
         </div>
       </div>
+
+      <div>
+        <h2 className="my-2 text-center text-3xl text-blue-900 uppercase font-bold">
+          Features of Kitchen Renovation
+        </h2>
+        <div className="flex justify-center">
+          <div className="w-24 border-b-4 border-blue-900 mb-8"></div>
+        </div>
+
+        <div className="px-4" data-aos="fade-down" data-aos-delay="600">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="bg-white transition-all ease-in-out duration-400  overflow-hidden text-gray-700 hover:scale-105 rounded-lg shadow-2xl p-3 min-h-max">
+              <div className="m-2 text-justify text-sm">
+                <h3 className="font-semibold my-4 text-lg md:text-2xl text-center mb-4 h-12">
+                  Electrical and plumbing equipment
+                </h3>
+                <p className="text-md font-medium leading-6 h-auto md:h-48">
+                  To improve the operation of your kitchen, you might want to
+                  change your appliances and fixtures as well. We have countless
+                  solutions to boost efficiency and change the drab appearance
+                  of your kitchen.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-white transition-all ease-in-out duration-400 overflow-hidden text-gray-700 hover:scale-105 rounded-lg shadow-2xl p-3">
+              <div className="m-2 text-justify text-sm">
+                <h4 className="font-semibold my-4 text-lg md:text-2xl text-center mb-4 h-12">
+                  Backsplashes
+                </h4>
+                <p className="text-md font-medium leading-5 h-auto md:h-48">
+                  You must put backsplashes in your kitchen if elegance is your
+                  thing. Backsplashes are a great way to give your kitchen a
+                  facelift and make it more upscale and inviting for your family
+                  and guests.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-white transition-all ease-in-out duration-400  overflow-hidden text-gray-700 hover:scale-105 rounded-lg shadow-2xl p-3">
+              <div className="m-2 text-justify text-sm">
+                <h4 className="font-semibold my-4 text-lg md:text-2xl text-center mb-4 h-12">
+                  Kitchen Islands and Countertops
+                </h4>
+                <p className="text-md font-medium leading-5 h-auto md:h-48">
+                  You may create the kitchen of your dreams by replacing your
+                  countertops or building valuable islands. Various styles,
+                  colors, and countertop materials are available to match your
+                  taste and style. Similarly, if you want to expand your
+                  kitchen, consider adding an island.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-white transition-all ease-in-out duration-400  overflow-hidden text-gray-700 hover:scale-105 rounded-lg shadow-2xl p-3">
+              <div className="m-2 text-justify text-sm">
+                <h4 className="font-semibold my-4 text-lg md:text-2xl text-center mb-4 h-12">
+                  Cabinetry
+                </h4>
+                <p className="text-md font-medium leading-5 h-auto md:h-48">
+                  are a beautiful and valuable addition to any kitchen. It's
+                  likely that if your kitchen cabinets were installed many years
+                  ago, they are now out- of-date, harmed, and unsightly. With
+                  custom kitchen cabinets from KDO Kitchens and Remodeling, you
+                  can make a statement.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-10 mb-16 flex flex-col items-center text-center">
+        <h2 className="my-4 text-3xl text-blue-900 uppercase font-bold">
+          Scheduling & Consultation for Kitchen Renovation
+        </h2>
+        <p className="w-3/4 text-lg text-gray-700">
+          Being a leading provider of kitchen remodeling services, delivering
+          “pure gold” in artistry and material quality is KDO Kitchens and
+          Remodeling. We complete all renovations without worry, whether you
+          want to add more space, enhance efficiency, create a universal kitchen
+          design, or create a kid-friendly kitchen.
+        </p>
+        <Link
+          to="/contact"
+          className="text-white bg-blue-900 hover:bg-blue-800 inline-flex items-center justify-center w-full px-6 py-2 my-4 text-lg shadow-xl rounded-2xl sm:w-auto sm:mb-0 group"
+        >
+          Contact us
+          <svg
+            className="w-4 h-4 ml-1 group-hover:translate-x-2"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+              clipRule="evenodd"
+            ></path>
+          </svg>
+        </Link>
+      </div>
+      <Footer />
     </>
   );
 };
