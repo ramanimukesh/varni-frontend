@@ -1,18 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import NavBar from "../../components/Navbar/NavBar";
-import img1 from "../../images/Bathroom/image1.jpeg"; // Ensure this file exists
-import img2 from "../../images/Bathroom/image2.jpg"; // Ensure this file exists
-import img3 from "../../images/Bathroom/image3.jpg"; // Ensure this file exists
-import img4 from "../../images/Bathroom/image4.jpeg"; // Ensure this file exists
-import img5 from "../../images/Bathroom/image5.jpg"; // Ensure this file exists
-import img6 from "../../images/Bathroom/image6.jpeg"; // Ensure this file exists
+import img1 from "../../images/Bathroom/image1.jpeg"; 
+import img2 from "../../images/Bathroom/image2.jpg"; 
+import img3 from "../../images/Bathroom/image3.jpg"; 
+import img4 from "../../images/Bathroom/image4.jpeg"; 
+import img5 from "../../images/Bathroom/image5.jpg"; 
+import img6 from "../../images/Bathroom/image6.jpeg"; 
 import img7 from "../../images/Bathroom/image7.webp";
 import img8 from "../../images/Bathroom/image8.webp";
 import img9 from "../../images/Bathroom/image9.webp";
-
-
-
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -22,7 +19,7 @@ const Bathroom = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 2000,
+    speed: 5000,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
@@ -175,46 +172,6 @@ const Bathroom = () => {
           </div>
         </div>
       </section>
-
-      <div>
-        <h2 className="my-2 text-center text-3xl text-blue-900 uppercase font-bold mb-4">
-          Kitchen Design Styles
-        </h2>
-        <div className="w-full bg-gray-100">
-          <div className="bg-white w-full h-auto px-6 py-10 text-gray-700 text-center shadow-2xl">
-            <h2 className="font-semibold mb-4 text-4xl">
-              Modern Kitchen Style
-            </h2>
-            <p className="text-lg font-medium">
-              Sleek, clean lines, minimalism, and a focus on functionality
-              define modern kitchen design. You are providing your kitchen with
-              a more opulent and seductive appearance.
-            </p>
-          </div>
-          <div className="bg-white w-full h-auto px-6 py-10 text-gray-700 text-center shadow-2xl mt-6">
-            <h2 className="font-semibold mb-4 text-4xl">
-              Transitional Kitchen Style
-            </h2>
-            <p className="text-lg font-medium">
-              A transitional kitchen is a well-liked design that combines
-              traditional and modern components. It gives a balanced and
-              timeless appearance, fusing traditional and contemporary elements
-              to produce a peaceful environment.
-            </p>
-          </div>
-          <div className="bg-white w-full h-auto px-6 py-10 text-gray-700 text-center shadow-2xl mt-6">
-            <h2 className="font-semibold mb-4 text-4xl">
-              Contemporary Kitchen Style
-            </h2>
-            <p className="text-lg font-medium">
-              Contemporary style is a current or modern approach to design,
-              building, fashion, or art. It is distinguished by its focus on
-              clarity, minimalism, and clean lines while adding contemporary and
-              futuristic aesthetic elements.
-            </p>
-          </div>
-        </div>
-      </div>
 
       <section data-aos="zoom-in-down">
                     <div className="my-4 py-4">

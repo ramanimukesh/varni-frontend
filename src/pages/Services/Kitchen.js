@@ -1,12 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import NavBar from "../../components/Navbar/NavBar";
-import img1 from "../../images/Kitchen/kitchen.jpeg"; // Ensure this file exists
-import img2 from "../../images/Kitchen/kitchen1.jpeg"; // Ensure this file exists
-import img3 from "../../images/Kitchen/kitchen2.jpg"; // Ensure this file exists
-import img4 from "../../images/Kitchen/kitchen3.jpeg"; // Ensure this file exists
-import img5 from "../../images/Kitchen/kitchen4.jpeg"; // Ensure this file exists
-
+import img1 from "../../images/Kitchen/kitchen.jpeg"; 
+import img2 from "../../images/Kitchen/kitchen1.jpeg"; 
+import img3 from "../../images/Kitchen/kitchen2.jpg"; 
+import img4 from "../../images/Kitchen/kitchen3.jpeg"; 
+import img5 from "../../images/Kitchen/kitchen4.jpeg"; 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -16,7 +15,7 @@ const Kitchen = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 2000,
+    speed: 5000,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
