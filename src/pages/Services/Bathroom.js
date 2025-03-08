@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Link } from "react-router-dom";
 import NavBar from "../../components/Navbar/NavBar";
 import img1 from "../../images/Bathroom/image1.jpeg"; 
@@ -16,6 +16,11 @@ import "slick-carousel/slick/slick-theme.css";
 import Footer from "../../components/Footer";
 
 const Bathroom = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   const settings = {
     dots: true,
     infinite: true,

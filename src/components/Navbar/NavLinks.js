@@ -124,12 +124,12 @@ const NavLinks = () => {
         )}
       </div>
 
-      <Link
+      {/* <Link
         className="px-4 font-extrabold text-blue-900 hover:text-blue-900"
         to="/#recent-projects"
       >
         RECENT PROJECTS
-      </Link>
+      </Link> */}
       <Link
         className="px-4 font-extrabold text-blue-900 hover:text-blue-900"
         to="/#"
@@ -143,12 +143,12 @@ const NavLinks = () => {
       >
         BLOG
       </Link>
-      <Link
+      {/* <Link
         className="px-4 font-extrabold text-blue-900 hover:text-blue-900"
         to="/#press"
       >
         PRESS
-      </Link>
+      </Link> */}
       <Link
         className="px-4 font-extrabold text-blue-900 hover:text-blue-900"
         to="/contact"

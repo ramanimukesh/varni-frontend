@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Link } from "react-router-dom";
 import NavBar from "../../components/Navbar/NavBar";
 import img1 from "../../images/Laundry/laundry1.webp";
@@ -13,6 +13,11 @@ import "slick-carousel/slick/slick-theme.css";
 import Footer from "../../components/Footer";
 
 const Laundry = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -128,13 +133,12 @@ const Laundry = () => {
             </Link>
           </div>
 
-          {/* Right Side: Image */}
           <div className="lg:w-1/2 flex flex-col lg:mx-4 justify-center">
             <img
               alt="card img"
-              className="rounded-t w-full h-auto object-cover"
+              className="rounded-t h-auto object-cover ml-2"
               src={img4}
-              data-aos="fade-left"
+              data-aos="fade-right"
               data-aos-delay="700"
             />
           </div>
@@ -186,23 +190,36 @@ const Laundry = () => {
           laundry room:{" "}
         </h2>
         <ul className=" text-2xl text-gray-600 my-3 text-xl text-gray-600 ">
-  <li>
-    <strong>Upgraded Appliances:</strong> Modern washers and dryers offer energy efficiency, larger capacities, intelligent controls, and customized cycles for various fabric types, enhancing usability and effectiveness.
-  </li>
-  <li>
-    <strong>Countertops and Sinks:</strong> Installing countertops and sinks provides a convenient space for folding clothes, sorting laundry, and removing stains. Durable, easy-to-clean surfaces work best.
-  </li>
-  <li>
-    <strong>Layout & Design:</strong> A well-planned laundry room layout optimizes space and efficiency. Proper placement of sinks, countertops, and storage cabinets ensures a seamless workflow.
-  </li>
-  <li>
-    <strong>Storage Solutions:</strong> Adequate storage helps keep detergents, cleaning supplies, and ironing essentials organized. Adding cabinets, shelves, or specialized laundry storage solutions maximizes space and functionality.
-  </li>
-  <li>
-    <strong>Lighting & Ventilation:</strong> Proper lighting enhances visibility, while good ventilation prevents excessive humidity and odors. In rooms without windows, adequate airflow is essential for maintaining a fresh environment.
-  </li>
-</ul>
-
+          <li>
+            <strong>Upgraded Appliances:</strong> Modern washers and dryers
+            offer energy efficiency, larger capacities, intelligent controls,
+            and customized cycles for various fabric types, enhancing usability
+            and effectiveness.
+          </li>
+          <li>
+            <strong>Countertops and Sinks:</strong> Installing countertops and
+            sinks provides a convenient space for folding clothes, sorting
+            laundry, and removing stains. Durable, easy-to-clean surfaces work
+            best.
+          </li>
+          <li>
+            <strong>Layout & Design:</strong> A well-planned laundry room layout
+            optimizes space and efficiency. Proper placement of sinks,
+            countertops, and storage cabinets ensures a seamless workflow.
+          </li>
+          <li>
+            <strong>Storage Solutions:</strong> Adequate storage helps keep
+            detergents, cleaning supplies, and ironing essentials organized.
+            Adding cabinets, shelves, or specialized laundry storage solutions
+            maximizes space and functionality.
+          </li>
+          <li>
+            <strong>Lighting & Ventilation:</strong> Proper lighting enhances
+            visibility, while good ventilation prevents excessive humidity and
+            odors. In rooms without windows, adequate airflow is essential for
+            maintaining a fresh environment.
+          </li>
+        </ul>
 
         <Link
           to="/contact"
