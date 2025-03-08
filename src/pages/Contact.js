@@ -3,18 +3,18 @@ import NavBar from '../components/Navbar/NavBar';
 import Footer from '../components/Footer';
 import { useDocTitle } from '../components/CustomHook';
 import Notiflix from 'notiflix';
-import { userContact } from '../Connection/api';
+import { userContact } from '../Connection/api';  // Ensure this function is updated
 
-const Contact = () => {
+const Contact = (props) => {
     useDocTitle('SWC');
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
-    const [errors, setErrors] = useState({});
+    const [errors, setErrors] = useState([]);
 
-    const clearErrors = () => setErrors({});
-
+    const clearErrors = () => setErrors([]);
+    
     const clearInput = () => {
         setName('');
         setEmail('');
@@ -23,14 +23,15 @@ const Contact = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const submitBtn = document.getElementById('submitBtn');
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = 'Loading...';
+        document.getElementById('submitBtn').disabled = true;
+        document.getElementById('submitBtn').innerHTML = 'Loading...';
 
         try {
+            // Pass an object with name, email, and message
             const registration = await userContact({ name, email, message });
             console.log('Send Data:', registration);
 
+            // Clear inputs and show success message
             clearInput();
             Notiflix.Report.success(
                 'Success',
@@ -39,32 +40,19 @@ const Contact = () => {
             );
         } catch (error) {
             const { response } = error;
-            
-            if (response?.status === 400) {
+            if (response?.status === 500) {
                 Notiflix.Report.failure(
-                    'Validation Error',
-                    'Please fill in all required fields correctly.',
-                    'Okay'
-                );
-            } else if (response?.status === 500) {
-                Notiflix.Report.failure(
-                    'Server Error',
-                    response.data?.message || 'An unexpected error occurred. Please try again later.',
+                    'An error occurred',
+                    response.data.message,
                     'Okay'
                 );
             }
-            
-            // Handle backend error structure (if errors are returned as array or object)
             if (response?.data?.errors) {
-                const formattedErrors = response.data.errors.reduce((acc, error) => {
-                    acc[error.path] = error.message;
-                    return acc;
-                }, {});
-                setErrors(formattedErrors);
+                setErrors(response.data.errors);
             }
         } finally {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = 'Send Message';
+            document.getElementById('submitBtn').disabled = false;
+            document.getElementById('submitBtn').innerHTML = 'Send Message';
         }
     };
 
@@ -73,7 +61,6 @@ const Contact = () => {
             <NavBar />
             <div id='contact' className="flex justify-center items-center mt-8 w-full bg-white py-12 lg:py-24">
                 <div className="container mx-auto my-8 px-4 lg:px-20" data-aos="zoom-in">
-
                     <form onSubmit={handleSubmit}>
                         <div className="w-full bg-white p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl">
                             <div className="flex">

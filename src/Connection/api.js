@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 
 const use = axios.create({
     baseURL: "http://localhost:5000",
@@ -8,5 +8,6 @@ const use = axios.create({
     }
 });
 
-export const userContact = () => use.post("/userContact");
+export const userContact = (data) => use.post("/userContact", data);  
+
 export const getcontact = () => use.get("/getcontact");
