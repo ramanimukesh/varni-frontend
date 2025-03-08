@@ -1,11 +1,11 @@
 import React, {useEffect} from "react";
 import { Link } from "react-router-dom";
 import NavBar from "../../components/Navbar/NavBar";
-import img1 from "../../images/Kitchen/kitchen.jpeg"; 
-import img2 from "../../images/Kitchen/kitchen1.jpeg"; 
-import img3 from "../../images/Kitchen/kitchen2.jpg"; 
-import img4 from "../../images/Kitchen/kitchen3.jpeg"; 
-import img5 from "../../images/Kitchen/kitchen4.jpeg"; 
+import img1 from "../../images/Kitchen/kitchen.jpeg";
+import img2 from "../../images/Kitchen/kitchen1.jpeg";
+import img3 from "../../images/Kitchen/kitchen2.jpg";
+import img4 from "../../images/Kitchen/kitchen3.jpeg";
+import img5 from "../../images/Kitchen/kitchen4.jpeg";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -91,7 +91,7 @@ const Kitchen = () => {
               Professional Renovation and Remodeling Services in Atlanta, GA
             </h3>
             <div>
-              <p className="my-3 text-xl text-gray-600 font-semibold">
+              <p className="my-3 text-xl text-gray-600 font-semibold text-justify">
                 Swaminarayan Construction Kitchens and Remodeling is recognized
                 as Georgia’s most skilled and detail-oriented kitchen
                 installation expert. Based in Atlanta, GA, our team of
@@ -172,7 +172,7 @@ const Kitchen = () => {
         </div>
       </section>
 
-      <div>
+      {/* <div>
         <h2 className="my-2 text-center text-3xl text-blue-900 uppercase font-bold mb-4">
           Kitchen Design Styles
         </h2>
@@ -210,7 +210,51 @@ const Kitchen = () => {
             </p>
           </div>
         </div>
+      </div> */}
+
+      <div className="w-full py-12 bg-gray-100">
+        <h2 className="text-center text-4xl text-blue-900 font-extrabold uppercase mb-10">
+          Kitchen Design Styles
+        </h2>
+
+        {/* Top Section: Modern Kitchen Style */}
+        <div className="flex justify-center mb-10">
+          <div className="bg-white rounded-lg shadow-lg w-full md:w-2/3 lg:w-1/2 p-8 text-center">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
+              Modern Kitchen Style
+            </h2>
+            <p className="text-lg text-gray-600">
+              Sleek, clean lines, minimalism, and a focus on functionality define
+              modern kitchen design, giving your kitchen an opulent and stylish look.
+            </p>
+          </div>
+        </div>
+
+        <div className="flex justify-center mb-10">
+          <div className="bg-white rounded-lg shadow-lg w-full md:w-2/3 lg:w-1/2 p-8 text-center">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
+              Transitional Kitchen Style
+            </h2>
+            <p className="text-lg text-gray-600">
+              A blend of traditional and modern elements creates a timeless and
+              harmonious kitchen atmosphere with both elegance and function.
+            </p>
+          </div>
+        </div>
+
+        <div className="flex justify-center mb-10">
+          <div className="bg-white rounded-lg shadow-lg w-full md:w-2/3 lg:w-1/2 p-8 text-center">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
+              Contemporary Kitchen Style
+            </h2>
+            <p className="text-lg text-gray-600">
+              Defined by clarity, minimalism, and clean lines, contemporary
+              kitchens incorporate futuristic aesthetics for a sleek and modern feel.
+            </p>
+          </div>
+        </div>
       </div>
+
 
       <div className="mt-10 mb-16 flex flex-col items-center text-center">
         <h2 className="my-4 text-3xl text-blue-900 uppercase font-bold">
@@ -220,52 +264,52 @@ const Kitchen = () => {
           <div className="w-24 border-b-4 border-blue-900 mb-4"></div>
         </div>
         <div className="px-4" data-aos="fade-down" data-aos-delay="600">
-  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-    <div className="bg-white transition-all ease-in-out duration-400 overflow-hidden text-gray-700 hover:scale-105 rounded-lg shadow-2xl p-3 min-h-max">
-      <div className="m-2 text-justify text-sm">
-        <h3 className="font-semibold my-4 text-lg md:text-2xl text-center mb-4 h-12">
-          Electrical and plumbing equipment
-        </h3>
-        <p className="text-lg font-medium leading-6 h-auto md:h-48">
-          To improve the operation of your kitchen, you might want to change your appliances and fixtures as well. We have countless solutions to boost efficiency and change the drab appearance of your kitchen.
-        </p>
-      </div>
-    </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="bg-white transition-all ease-in-out duration-400 overflow-hidden text-gray-700 hover:scale-105 rounded-lg shadow-2xl p-3 min-h-max">
+              <div className="m-2 text-justify text-sm">
+                <h3 className="font-semibold my-4 text-lg md:text-2xl text-center mb-4 h-12">
+                  Electrical and plumbing equipment
+                </h3>
+                <p className="text-lg font-medium leading-6 h-auto md:h-48">
+                  To improve the operation of your kitchen, you might want to change your appliances and fixtures as well. We have countless solutions to boost efficiency and change the drab appearance of your kitchen.
+                </p>
+              </div>
+            </div>
 
-    <div className="bg-white transition-all ease-in-out duration-400 overflow-hidden text-gray-700 hover:scale-105 rounded-lg shadow-2xl p-3">
-      <div className="m-2 text-justify text-sm">
-        <h4 className="font-semibold my-4 text-lg md:text-2xl text-center mb-4 h-12">
-          Backsplashes
-        </h4>
-        <p className="text-lg font-medium leading-5 h-auto md:h-48">
-          You must put backsplashes in your kitchen if elegance is your thing. Backsplashes are a great way to give your kitchen a facelift and make it more upscale and inviting for your family and guests.
-        </p>
-      </div>
-    </div>
+            <div className="bg-white transition-all ease-in-out duration-400 overflow-hidden text-gray-700 hover:scale-105 rounded-lg shadow-2xl p-3">
+              <div className="m-2 text-justify text-sm">
+                <h4 className="font-semibold my-4 text-lg md:text-2xl text-center mb-4 h-12">
+                  Backsplashes
+                </h4>
+                <p className="text-lg font-medium leading-5 h-auto md:h-48">
+                  You must put backsplashes in your kitchen if elegance is your thing. Backsplashes are a great way to give your kitchen a facelift and make it more upscale and inviting for your family and guests.
+                </p>
+              </div>
+            </div>
 
-    <div className="bg-white transition-all ease-in-out duration-400 overflow-hidden text-gray-700 hover:scale-105 rounded-lg shadow-2xl p-3">
-      <div className="m-2 text-justify text-sm">
-        <h4 className="font-semibold my-4 text-lg md:text-2xl text-center mb-4 h-12">
-          Kitchen Islands and Countertops
-        </h4>
-        <p className="text-lg font-medium leading-5 h-auto md:h-48">
-          You may create the kitchen of your dreams by replacing your countertops or building valuable islands. Various styles, colors, and countertop materials are available to match your taste and style. Similarly, if you want to expand your kitchen, consider adding an island.
-        </p>
-      </div>
-    </div>
+            <div className="bg-white transition-all ease-in-out duration-400 overflow-hidden text-gray-700 hover:scale-105 rounded-lg shadow-2xl p-3">
+              <div className="m-2 text-justify text-sm">
+                <h4 className="font-semibold my-4 text-lg md:text-2xl text-center mb-4 h-12">
+                  Kitchen Islands and Countertops
+                </h4>
+                <p className="text-lg font-medium leading-5 h-auto md:h-48">
+                  You may create the kitchen of your dreams by replacing your countertops or building valuable islands. Various styles, colors, and countertop materials are available to match your taste and style. Similarly, if you want to expand your kitchen, consider adding an island.
+                </p>
+              </div>
+            </div>
 
-    <div className="bg-white transition-all ease-in-out duration-400 overflow-hidden text-gray-700 hover:scale-105 rounded-lg shadow-2xl p-3">
-      <div className="m-2 text-justify text-sm">
-        <h4 className="font-semibold my-4 text-lg md:text-2xl text-center mb-4 h-12">
-          Cabinetry
-        </h4>
-        <p className="text-lg font-medium leading-5 h-auto md:h-48">
-          Cabinets are a beautiful and valuable addition to any kitchen. It's likely that if your kitchen cabinets were installed many years ago, they are now out-of-date, harmed, and unsightly. With custom kitchen cabinets from KDO Kitchens and Remodeling, you can make a statement.
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
+            <div className="bg-white transition-all ease-in-out duration-400 overflow-hidden text-gray-700 hover:scale-105 rounded-lg shadow-2xl p-3">
+              <div className="m-2 text-justify text-sm">
+                <h4 className="font-semibold my-4 text-lg md:text-2xl text-center mb-4 h-12">
+                  Cabinetry
+                </h4>
+                <p className="text-lg font-medium leading-5 h-auto md:h-48">
+                  Cabinets are a beautiful and valuable addition to any kitchen. It's likely that if your kitchen cabinets were installed many years ago, they are now out-of-date, harmed, and unsightly. With custom kitchen cabinets from KDO Kitchens and Remodeling, you can make a statement.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div>
 

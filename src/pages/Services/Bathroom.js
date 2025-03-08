@@ -99,7 +99,7 @@ const Bathroom = () => {
               Atlanta, GA{" "}
             </h3>
             <div>
-              <p className="my-3 text-xl text-gray-600 font-semibold">
+              <p className="my-3 text-xl text-gray-600 font-semibold text-justify">
                 Transform your outdated bathroom interiors into a stunning oasis
                 with Swaminarayan Construction! Don’t let your morning routine
                 be ruined by an uninviting and crumbling bathroom. As your

@@ -95,7 +95,7 @@ const Flooring = () => {
               Transform Your Flooring with the Best Remodeling Contractor in
               Atlanta, GA
             </h3>
-            <p className="my-3 text-xl text-gray-600 font-semibold">
+            <p className="my-3 text-xl text-gray-600 font-semibold text-justify">
               Transform your outdated flooring interiors into a stunning oasis
               with Swaminarayan Construction! Don’t let your morning routine be
               ruined by an uninviting and crumbling flooring. We specialize in

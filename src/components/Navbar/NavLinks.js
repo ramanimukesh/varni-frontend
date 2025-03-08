@@ -4,8 +4,8 @@ import { Phone } from "lucide-react";
 
 const NavLinks = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef(null); // Ref for the dropdown container
-  const buttonRef = useRef(null); // Ref for the services button
+  const dropdownRef = useRef(null); 
+  const buttonRef = useRef(null);
 
   // Smooth scroll function
   const smoothScroll = (id) => {
@@ -18,12 +18,10 @@ const NavLinks = () => {
     }
   };
 
-  // Toggle the dropdown visibility on button click
   const handleDropdownToggle = () => {
     setIsOpen((prev) => !prev);
   };
 
-  // Close the dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -32,14 +30,11 @@ const NavLinks = () => {
         buttonRef.current &&
         !buttonRef.current.contains(event.target)
       ) {
-        setIsOpen(false); // Close dropdown if click is outside
+        setIsOpen(false); 
       }
     };
-
-    // Attach the event listener
     document.addEventListener("mousedown", handleClickOutside);
 
-    // Cleanup the event listener on component unmount
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -62,7 +57,6 @@ const NavLinks = () => {
         ABOUT
       </Link>
 
-      {/* Services Dropdown */}
       <div className="relative inline-block" ref={dropdownRef}>
         <button
           className="px-4 font-extrabold text-blue-900 hover:text-blue-900"
@@ -72,12 +66,11 @@ const NavLinks = () => {
           SERVICES
         </button>
 
-        {/* Dropdown menu */}
         {isOpen && (
-          <ul className="absolute left-0 mt-2 w-40 bg-white shadow-xl">
+          <ul className="absolute left-0 mt-2 w-72 bg-white border border-gray-200 rounded-lg shadow-2xl">
             <li>
               <Link
-                className="block px-4 py-2 hover:bg-gray-100"
+                className="block px-6 py-2 text-lg font-medium text-gray-700 hover:bg-gray-200 transition"
                 to="/kitchen"
                 onClick={() => smoothScroll("service1")}
               >
@@ -86,7 +79,7 @@ const NavLinks = () => {
             </li>
             <li>
               <Link
-                className="block px-4 py-2 hover:bg-gray-100"
+                className="block px-6 py-2 text-lg font-medium text-gray-700 hover:bg-gray-200 transition"
                 to="/bathroom"
                 onClick={() => smoothScroll("service2")}
               >
@@ -95,7 +88,7 @@ const NavLinks = () => {
             </li>
             <li>
               <Link
-                className="block px-4 py-2 hover:bg-gray-100"
+                className="block px-6 py-2 text-lg font-medium text-gray-700 hover:bg-gray-200 transition"
                 to="/laundry"
                 onClick={() => smoothScroll("service3")}
               >
@@ -104,7 +97,7 @@ const NavLinks = () => {
             </li>
             <li>
               <Link
-                className="block px-4 py-2 hover:bg-gray-100"
+                className="block px-6 py-2 text-lg font-medium text-gray-700 hover:bg-gray-200 transition"
                 to="/flooring"
                 onClick={() => smoothScroll("service4")}
               >
@@ -113,7 +106,7 @@ const NavLinks = () => {
             </li>
             <li>
               <Link
-                className="block px-4 py-2 hover:bg-gray-100"
+                className="block px-6 py-2 text-lg font-medium text-gray-700 hover:bg-gray-200 transition"
                 to="/quartz"
                 onClick={() => smoothScroll("service5")}
               >
@@ -122,6 +115,8 @@ const NavLinks = () => {
             </li>
           </ul>
         )}
+
+
       </div>
 
       {/* <Link
