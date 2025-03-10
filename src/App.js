@@ -7,11 +7,8 @@ import {
   Routes,
   Route
 } from 'react-router-dom';
-// All pages
 import Home from './pages/Home';
 import Contact from './pages/Contact';
-import DemoProduct from './pages/DemoProduct';
-
 import {useDocTitle} from './components/CustomHook';
 import ScrollToTop from './components/ScrollToTop';
 import Kitchen from './pages/Services/Kitchen';
@@ -44,7 +41,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/get-demo" element={<DemoProduct />} /> 
             <Route path= "/kitchen" element={<Kitchen/>}/>
             <Route path= "/bathroom" element={<Bathroom/>}/>
             <Route path= "/laundry" element={<Laundry/>}/>
