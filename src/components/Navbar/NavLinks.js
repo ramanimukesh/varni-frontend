@@ -155,13 +155,13 @@ const NavLinks = () => {
       >
         CONTACT
       </Link>
-      <Link
+      <button
         className="text-white bg-blue-900 hover:bg-blue-800 inline-flex items-center justify-center w-auto px-6 py-3 shadow-xl rounded-xl"
-        to="/get-demo"
+        // to="/get-demo"
       >
-        <Phone className="w-5 h-5 mr-2" /> {/* Phone Icon */}
+        <Phone className="w-5 h-5 mr-2" /> 
         855-55-SWAMI
-      </Link>
+      </button>
     </>
   );
 };

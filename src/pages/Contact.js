@@ -3,7 +3,7 @@ import NavBar from "../components/Navbar/NavBar";
 import Footer from "../components/Footer";
 import { useDocTitle } from "../components/CustomHook";
 import Notiflix from "notiflix";
-import { userContact } from "../Connection/api"; // Ensure this function is updated
+import { userContact } from "./http/api"; 
 
 const Contact = (props) => {
   useDocTitle("SWC");
@@ -150,7 +150,6 @@ const Contact = (props) => {
                     <p className="text-red-500 text-sm">{errors.email}</p>
                   )}
                 </div>
-                {/* Phone */}
                 <div>
                   <label htmlFor="phone" className="block text-gray-700">Phone*</label>
                   <input
@@ -168,7 +167,6 @@ const Contact = (props) => {
                 </div>
               </div>
               <div className="grid grid-cols-1 gap-5 mt-5">
-                {/* Service */}
                 <div>
                   <label htmlFor="service" className="block text-gray-700">Select a Service*</label>
                   <select
@@ -188,7 +186,6 @@ const Contact = (props) => {
                     <p className="text-red-500 text-sm">{errors.service}</p>
                   )}
                 </div>
-                {/* Project */}
                 <div>
                   <label htmlFor="project" className="block text-gray-700">When are you planning to start your project?*</label>
                   <select
@@ -209,7 +206,6 @@ const Contact = (props) => {
               </div>
 
               <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
-                {/* Address */}
                 <div>
                   <label htmlFor="address" className="block text-gray-700">Home Address*</label>
                   <input
@@ -225,7 +221,6 @@ const Contact = (props) => {
                     <p className="text-red-500 text-sm">{errors.address}</p>
                   )}
                 </div>
-                {/* Zip */}
                 <div>
                   <label htmlFor="zip" className="block text-gray-700">Zip Code*</label>
                   <input
@@ -242,7 +237,6 @@ const Contact = (props) => {
                   )}
                 </div>
               </div>
-              {/* Media */}
               <div className="grid grid-cols-1 gap-5 mt-5">
                 <div>
                   <label htmlFor="media" className="block text-gray-700">How did you hear about us?*</label>
@@ -263,7 +257,6 @@ const Contact = (props) => {
                 </div>
               </div>
 
-              {/* Message */}
               <div className="my-4">
                 <label htmlFor="message" className="block text-gray-700">Message*</label>
                 <textarea
