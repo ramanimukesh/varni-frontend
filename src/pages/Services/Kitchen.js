@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import NavBar from "../../components/Navbar/NavBar";
 import img1 from "../../images/Kitchen/kitchen.jpeg";
@@ -12,7 +12,6 @@ import "slick-carousel/slick/slick-theme.css";
 import Footer from "../../components/Footer";
 
 const Kitchen = () => {
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -81,13 +80,24 @@ const Kitchen = () => {
           className="flex flex-col lg:flex-row py-8 justify-between lg:text-left"
           data-aos="fade-up"
         >
-          {/* Left Side: Text Content */}
+          <div className="lg:w-1/2 flex flex-col lg:mx-4 justify-center">
+            <img
+              alt="card img"
+              className="rounded-t w-full h-auto object-cover"
+              src={img2}
+              data-aos="fade-left"
+              data-aos-delay="700"
+            />
+          </div>
           <div
             className="flex-col my-4 text-center lg:text-left lg:my-0 lg:justify-end w-full lg:w-1/2 px-8"
             data-aos="zoom-in"
             data-aos-delay="500"
           >
-            <h3 className="text-3xl text-blue-900 font-bold">
+            <h2 className="my-2 text-3xl text-blue-900 uppercase font-bold ">
+              Kitchen Remodeling
+            </h2>
+            <h3 className="text-3xl text-blue-900 font-bold ">
               Professional Renovation and Remodeling Services in Atlanta, GA
             </h3>
             <div>
@@ -105,10 +115,6 @@ const Kitchen = () => {
                 exceptional prices and top-notch installation services for
                 cabinets, countertops, and flooring.
               </p>
-
-              <h3 className="text-3xl text-blue-900 font-bold">
-                Luxurious Comfort Meets Modern Design
-              </h3>
             </div>
             <Link
               to="/contact"
@@ -128,17 +134,6 @@ const Kitchen = () => {
                 ></path>
               </svg>
             </Link>
-          </div>
-
-          {/* Right Side: Image */}
-          <div className="lg:w-1/2 flex flex-col lg:mx-4 justify-center">
-            <img
-              alt="card img"
-              className="rounded-t w-full h-auto object-cover"
-              src={img2}
-              data-aos="fade-left"
-              data-aos-delay="700"
-            />
           </div>
         </div>
       </div>
@@ -224,8 +219,9 @@ const Kitchen = () => {
               Modern Kitchen Style
             </h2>
             <p className="text-lg text-gray-600">
-              Sleek, clean lines, minimalism, and a focus on functionality define
-              modern kitchen design, giving your kitchen an opulent and stylish look.
+              Sleek, clean lines, minimalism, and a focus on functionality
+              define modern kitchen design, giving your kitchen an opulent and
+              stylish look.
             </p>
           </div>
         </div>
@@ -249,12 +245,12 @@ const Kitchen = () => {
             </h2>
             <p className="text-lg text-gray-600">
               Defined by clarity, minimalism, and clean lines, contemporary
-              kitchens incorporate futuristic aesthetics for a sleek and modern feel.
+              kitchens incorporate futuristic aesthetics for a sleek and modern
+              feel.
             </p>
           </div>
         </div>
       </div>
-
 
       <div className="mt-10 mb-16 flex flex-col items-center text-center">
         <h2 className="my-4 text-3xl text-blue-900 uppercase font-bold">
@@ -271,7 +267,10 @@ const Kitchen = () => {
                   Electrical and plumbing equipment
                 </h3>
                 <p className="text-lg font-medium leading-6 h-auto md:h-48">
-                  To improve the operation of your kitchen, you might want to change your appliances and fixtures as well. We have countless solutions to boost efficiency and change the drab appearance of your kitchen.
+                  To improve the operation of your kitchen, you might want to
+                  change your appliances and fixtures as well. We have countless
+                  solutions to boost efficiency and change the drab appearance
+                  of your kitchen.
                 </p>
               </div>
             </div>
@@ -282,7 +281,10 @@ const Kitchen = () => {
                   Backsplashes
                 </h4>
                 <p className="text-lg font-medium leading-5 h-auto md:h-48">
-                  You must put backsplashes in your kitchen if elegance is your thing. Backsplashes are a great way to give your kitchen a facelift and make it more upscale and inviting for your family and guests.
+                  You must put backsplashes in your kitchen if elegance is your
+                  thing. Backsplashes are a great way to give your kitchen a
+                  facelift and make it more upscale and inviting for your family
+                  and guests.
                 </p>
               </div>
             </div>
@@ -293,7 +295,11 @@ const Kitchen = () => {
                   Kitchen Islands and Countertops
                 </h4>
                 <p className="text-lg font-medium leading-5 h-auto md:h-48">
-                  You may create the kitchen of your dreams by replacing your countertops or building valuable islands. Various styles, colors, and countertop materials are available to match your taste and style. Similarly, if you want to expand your kitchen, consider adding an island.
+                  You may create the kitchen of your dreams by replacing your
+                  countertops or building valuable islands. Various styles,
+                  colors, and countertop materials are available to match your
+                  taste and style. Similarly, if you want to expand your
+                  kitchen, consider adding an island.
                 </p>
               </div>
             </div>
@@ -304,13 +310,16 @@ const Kitchen = () => {
                   Cabinetry
                 </h4>
                 <p className="text-lg font-medium leading-5 h-auto md:h-48">
-                  Cabinets are a beautiful and valuable addition to any kitchen. It's likely that if your kitchen cabinets were installed many years ago, they are now out-of-date, harmed, and unsightly. With custom kitchen cabinets from KDO Kitchens and Remodeling, you can make a statement.
+                  Cabinets are a beautiful and valuable addition to any kitchen.
+                  It's likely that if your kitchen cabinets were installed many
+                  years ago, they are now out-of-date, harmed, and unsightly.
+                  With custom kitchen cabinets from KDO Kitchens and Remodeling,
+                  you can make a statement.
                 </p>
               </div>
             </div>
           </div>
         </div>
-
       </div>
 
       <div className="mt-10 mb-16 flex flex-col items-center text-center">

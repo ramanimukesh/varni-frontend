@@ -85,16 +85,24 @@ const Bathroom = () => {
           className="flex flex-col lg:flex-row py-8 justify-between lg:text-left"
           data-aos="fade-up"
         >
-          {/* Left Side: Text Content */}
+          <div className="lg:w-1/2 flex flex-col lg:mx-4 justify-center">
+            <img
+              alt="card img"
+              className="rounded-t w-full h-auto object-cover"
+              src={img2}
+              data-aos="fade-left"
+              data-aos-delay="700"
+            />
+          </div>
           <div
             className="flex-col my-4 text-center lg:text-left lg:my-0 lg:justify-end w-full lg:w-1/2 px-8"
             data-aos="zoom-in"
             data-aos-delay="500"
           >
-            <h2 className="my-2 text-left text-3xl text-blue-900 uppercase font-bold">
+            <h2 className="my-2 text-3xl text-blue-900 uppercase font-bold ">
               Bathroom Remodeling
             </h2>
-            <h3 className="text-3xl text-blue-900 font-bold">
+            <h3 className="text-3xl text-blue-900 font-bold ">
               Transform Your Bathroom with the Best Remodeling Contractor in
               Atlanta, GA{" "}
             </h3>
@@ -134,17 +142,6 @@ const Bathroom = () => {
                 ></path>
               </svg>
             </Link>
-          </div>
-
-          {/* Right Side: Image */}
-          <div className="lg:w-1/2 flex flex-col lg:mx-4 justify-center">
-            <img
-              alt="card img"
-              className="rounded-t w-full h-auto object-cover"
-              src={img2}
-              data-aos="fade-left"
-              data-aos-delay="700"
-            />
           </div>
         </div>
       </div>

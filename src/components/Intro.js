@@ -10,15 +10,23 @@ const Intro = () => {
           className="flex flex-col lg:flex-row py-8 justify-between lg:text-left"
           data-aos="fade-up"
         >
-          {/* Left Side: Text Content */}
+          <div className="lg:w-1/2 flex flex-col lg:mx-4 justify-center">
+            <img
+              alt="card img"
+              className="rounded-t w-full h-auto object-cover"
+              src={img}
+              data-aos="fade-left"
+              data-aos-delay="700"
+            />
+          </div>
           <div
             className="flex-col my-4 text-center lg:text-left lg:my-0 lg:justify-end w-full lg:w-1/2 px-8"
             data-aos="zoom-in"
             data-aos-delay="500"
           >
-            <h3 className="text-3xl text-blue-900 font-bold">
+            <h2 className="text-4xl text-blue-900 font-bold">
               Professional Renovation and Remodeling Services in Atlanta, GA
-            </h3>
+            </h2>
             <div>
               <p className="my-3 text-xl text-gray-600 font-semibold">
                 Swaminarayan Construction Kitchens and Remodeling is recognized as Georgia’s most
@@ -56,18 +64,7 @@ const Intro = () => {
                 ></path>
               </svg>
             </Link>
-          </div>
-
-          {/* Right Side: Image */}
-          <div className="lg:w-1/2 flex flex-col lg:mx-4 justify-center">
-            <img
-              alt="card img"
-              className="rounded-t w-full h-auto object-cover"
-              src={img}
-              data-aos="fade-left"
-              data-aos-delay="700"
-            />
-          </div>
+          </div>          
         </div>
       </div>
     </>

@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import NavBar from "../../components/Navbar/NavBar";
 import Slider from "react-slick";
@@ -12,7 +12,6 @@ import "slick-carousel/slick/slick-theme.css";
 import Footer from "../../components/Footer";
 
 const Flooring = () => {
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -82,20 +81,28 @@ const Flooring = () => {
           className="flex flex-col lg:flex-row py-8 justify-between lg:text-left"
           data-aos="fade-up"
         >
-          {/* Left Side: Text Content (Centered Vertically) */}
+          <div className="lg:w-1/2 flex flex-col lg:mx-4 justify-center">
+            <img
+              alt="card img"
+              className="rounded-t max-w-[80%] h-auto object-cover mx-auto"
+              src={img2}
+              data-aos="fade-left"
+              data-aos-delay="700"
+            />
+          </div>
           <div
             className="flex flex-col justify-center items-start w-full lg:w-1/2 px-8 h-full"
             data-aos="zoom-in"
             data-aos-delay="500"
           >
-            <h2 className="my-2 text-left text-3xl text-blue-900 uppercase font-bold">
+            <h2 className="my-2 text-3xl text-blue-900 uppercase font-bold text-center">
               Flooring Remodeling
             </h2>
-            <h3 className="text-3xl text-blue-900 font-bold">
+            <h3 className="text-3xl text-blue-900 font-bold text-center">
               Transform Your Flooring with the Best Remodeling Contractor in
               Atlanta, GA
             </h3>
-            <p className="my-3 text-xl text-gray-600 font-semibold text-justify">
+            <p className="my-3 text-xl text-gray-600 font-semibold">
               Transform your outdated flooring interiors into a stunning oasis
               with Swaminarayan Construction! Don’t let your morning routine be
               ruined by an uninviting and crumbling flooring. We specialize in
@@ -120,17 +127,6 @@ const Flooring = () => {
                 ></path>
               </svg>
             </Link>
-          </div>
-
-          {/* Right Side: Image */}
-          <div className="lg:w-1/2 flex flex-col lg:mx-4 justify-center">
-            <img
-              alt="card img"
-              className="rounded-t max-w-[80%] h-auto object-cover mx-auto"
-              src={img2}
-              data-aos="fade-left"
-              data-aos-delay="700"
-            />
           </div>
         </div>
       </div>

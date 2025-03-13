@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import NavBar from "../../components/Navbar/NavBar";
 import img1 from "../../images/Quartz/quartz1.jpg";
@@ -13,7 +13,6 @@ import "slick-carousel/slick/slick-theme.css";
 import Footer from "../../components/Footer";
 
 const Quartz = () => {
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -50,7 +49,7 @@ const Quartz = () => {
               />
               <div className="absolute inset-0 flex flex-col justify-center items-center text-center bg-black bg-opacity-50">
                 <h1 className="mb-5 md:text-5xl text-3xl font-bold text-white">
-                  Bathroom Remodeling in Atlanta Georgia
+                  Quartz Remodeling in Atlanta Georgia
                 </h1>
                 <div className="mb-4 space-x-0 md:space-x-2 md:mb-8">
                   <Link
@@ -82,21 +81,29 @@ const Quartz = () => {
           className="flex flex-col lg:flex-row py-8 justify-between lg:text-left"
           data-aos="fade-up"
         >
-          {/* Left Side: Text Content */}
+          <div className="lg:w-1/2 flex flex-col lg:mx-4 justify-center">
+            <img
+              alt="card img"
+              className="rounded-t h-auto object-cover ml-2"
+              src={img5}
+              data-aos="fade-right"
+              data-aos-delay="700"
+            />
+          </div>
           <div
             className="flex-col my-4 text-center lg:text-left lg:my-0 lg:justify-end w-full lg:w-1/2 px-8"
             data-aos="zoom-in"
             data-aos-delay="500"
           >
-            <h2 className="my-2 text-left text-3xl text-blue-900 uppercase font-bold">
-              Bathroom Remodeling
+            <h2 className="my-2 text-3xl text-blue-900 uppercase font-bold">
+              Quartz Remodeling
             </h2>
             <h3 className="text-3xl text-blue-900 font-bold">
-              Transform Your Bathroom with the Best Remodeling Contractor in
+              Transform Your Quartz with the Best Remodeling Contractor in
               Atlanta, GA{" "}
             </h3>
             <div>
-              <p className="my-3 text-xl text-gray-600 font-semibold">
+              <p className="my-3 text-xl text-gray-600 font-semibold text-left">
                 Transform your outdated bathroom interiors into a stunning oasis
                 with Swaminarayan Construction! Don’t let your morning routine
                 be ruined by an uninviting and crumbling bathroom. As your
@@ -132,22 +139,11 @@ const Quartz = () => {
               </svg>
             </Link>
           </div>
-
-          {/* Right Side: Image */}
-          <div className="lg:w-1/2 flex flex-col lg:mx-4 justify-center">
-            <img
-              alt="card img"
-              className="rounded-t h-auto object-cover ml-2"
-              src={img5}
-              data-aos="fade-right"
-              data-aos-delay="700"
-            />
-          </div>
         </div>
       </div>
       <section data-aos="zoom-in-down">
         <div className="my-4 py-4">
-          <h2 className="my-2 text-center text-3xl text-blue-900 uppercase font-bold">
+          <h2 className="my-2 text-center text-3xl text-blue-900 uppercase font-bold ">
             Luxury Bathroom Remodeling From A-Z with attention to the smallest
             detail
           </h2>
