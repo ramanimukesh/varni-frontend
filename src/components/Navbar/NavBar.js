@@ -1,58 +1,63 @@
-import React, { useState, useEffect } from 'react';
-import NavLinks from '../Navbar/NavLinks';
-import { HashLink } from 'react-router-hash-link';
-
+import React, { useState, useEffect } from "react";
+import NavLinks from "../Navbar/NavLinks";
+import { HashLink } from "react-router-hash-link";
 
 const NavBar = () => {
-    const [top, setTop] = useState(!window.scrollY);
-    const [isOpen, setisOpen] = React.useState(false);
-    function handleClick() {
-        setisOpen(!isOpen);
-    }
+  const [top, setTop] = useState(!window.scrollY);
+  const [isOpen, setIsOpen] = useState(false);
 
+  const handleClick = () => setIsOpen(!isOpen);
 
-    useEffect(() => {
-      const scrollHandler = () => {
-        window.pageYOffset > 10 ? setTop(false) : setTop(true)
-      };
-      window.addEventListener('scroll', scrollHandler);
-      return () => window.removeEventListener('scroll', scrollHandler);
-    }, [top]);
+  useEffect(() => {
+    const scrollHandler = () =>
+      window.pageYOffset > 10 ? setTop(false) : setTop(true);
+    window.addEventListener("scroll", scrollHandler);
+    return () => window.removeEventListener("scroll", scrollHandler);
+  }, []);
 
-    return (
-        <nav className={`fixed top-0 w-full z-30 transition duration-300 ease-in-out mb-16 ${!top && 'bg-white shadow-lg'}`}>
-            <div className="flex flex-row justify-between items-center py-2">
-                <div className="flex flex-row justify-center md:px-12 md:mx-12 items-center text-center font-semibold">
-                    <HashLink smooth to="/#hero"><h1 className="font-extrabold text-4xl text-blue-900">Swaminarayan Construction</h1></HashLink>
-                    
-                </div>
-                <div className="group flex flex-col items-center">
-                    <button className="p-2 rounded-lg lg:hidden text-blue-900" onClick={handleClick}>
-                        <svg className="h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            {isOpen && (
-                            <path fillRule="evenodd" clipRule="evenodd" d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z" />
-                            )}
-                            {!isOpen && (
-                            <path fillRule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z" />
-                            )}
-                        </svg>
-                    </button>
-                    <div className='hidden space-x-6 lg:inline-block p-5'>
-                        <NavLinks />
-                    </div>
+  return (
+    <nav
+      className={`fixed top-0 left-0 w-full z-30 transition duration-300 ease-in-out ${
+        !top ? "bg-white shadow-lg" : ""
+      }`}
+      style={{ overflow: "visible" }}
+    >
+      <div className="flex items-center justify-between py-3 px-4 lg:px-12 w-full">
+        {/* Left Side - Logo & Hamburger (Closer in mobile) */}
+        <div className="flex items-center">
+          {/* Hamburger Menu - Mobile Only */}
+          <button className="p-1 text-blue-900 lg:hidden mr-2" onClick={handleClick}>
+            {isOpen ? "✖️" : "☰"}
+          </button>
 
-                    <div className={`fixed transition-transform duration-300 ease-in-out transit flex justify-center left-0 w-full h-auto rounded-md p-24 bg-white lg:hidden shadow-xl top-14 ${  isOpen ? "block" : "hidden" } `}>
-                        <div className='flex flex-col space-y-6'>
-                            <NavLinks />
-                        </div>                                                
-                    </div>
+          {/* Logo */}
+          <HashLink smooth to="/#hero">
+            <h1 className="font-extrabold text-lg sm:text-xl md:text-2xl lg:text-3xl text-blue-900 whitespace-nowrap">
+              Swaminarayan Construction
+            </h1>
+          </HashLink>
+        </div>
 
-                </div>
-            </div>
-        </nav>
-    )
-    
-}
+        {/* NavLinks - Web View Only */}
+        <div className="hidden lg:flex space-x-6 items-center">
+          <NavLinks />
+        </div>
+      </div>
 
+      {/* Mobile Sidebar - Not covering the full screen */}
+      {isOpen && (
+        <div
+          className="fixed top-0 left-0 w-3/4 h-full bg-white shadow-xl z-40 p-6 flex flex-col space-y-4 lg:hidden"
+          style={{ maxWidth: "75vw" }} // Sidebar takes only 75% of screen width
+        >
+          <button className="self-end text-xl" onClick={handleClick}>
+            ✖️
+          </button>
+          <NavLinks />
+        </div>
+      )}
+    </nav>
+  );
+};
 
 export default NavBar;

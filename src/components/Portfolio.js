@@ -11,7 +11,7 @@ const Portfolio = () => {
       </div>
 
       <div className="px-4" data-aos="fade-down" data-aos-delay="600">
-        <div className="flex gap-5 overflow-hidden flex-nowrap">
+        <div className="flex gap-5 overflow-x-auto flex-nowrap">
           {/* Dummy Reviews */}
           {[
             {
@@ -41,7 +41,7 @@ const Portfolio = () => {
               review: "Seamless integration and easy to use!",
             },
             {
-              name: "Sophia Jrown",
+              name: "Sophia Brown",
               rating: 5,
               review: "Solid product with helpful features!",
             },
@@ -54,7 +54,7 @@ const Portfolio = () => {
             return (
               <div
                 key={index}
-                className="bg-white w-1/6 transition-all ease-in-out duration-400 text-gray-700 hover:scale-105 rounded-lg shadow-lg p-6"
+                className="bg-white w-64 lg:w-80 transition-all ease-in-out duration-400 text-gray-700 hover:scale-105 rounded-lg shadow-lg p-6"
                 style={{ height: "auto" }} // Auto height for content
               >
                 <div className="flex items-center mb-4">

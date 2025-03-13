@@ -30,7 +30,7 @@ const Footer = () => {
                 <li className="mb-2">
                   <HashLink
                     to="#"
-                    className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out"
+                    className="text-[#013289] hover:text-gray-900 transition duration-250 ease-in-out"
                   >
                     About
                   </HashLink>
@@ -38,7 +38,7 @@ const Footer = () => {
                 <li className="mb-2">
                   <HashLink
                     to="#"
-                    className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out"
+                    className="text-[#013289] hover:text-gray-900 transition duration-250 ease-in-out"
                   >
                     Services
                   </HashLink>
@@ -46,7 +46,7 @@ const Footer = () => {
                 <li className="mb-2">
                   <HashLink
                     to="#"
-                    className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out"
+                    className="text-[#013289] hover:text-gray-900 transition duration-250 ease-in-out"
                   >
                     Contact
                   </HashLink>
@@ -63,7 +63,7 @@ const Footer = () => {
                 <li className="mb-2">
                   <Link
                     to="/kitchen"
-                    className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out"
+                    className="text-[#013289] hover:text-gray-900 transition duration-250 ease-in-out"
                   >
                     Kitchen Remodeling
                   </Link>
@@ -71,7 +71,7 @@ const Footer = () => {
                 <li className="mb-2">
                   <Link
                     to="/bathroom"
-                    className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out"
+                    className="text-[#013289] hover:text-gray-900 transition duration-250 ease-in-out"
                   >
                     Bathroom Remodeling
                   </Link>
@@ -79,7 +79,7 @@ const Footer = () => {
                 <li className="mb-2">
                   <Link
                     to="/laundry"
-                    className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out"
+                    className="text-[#013289] hover:text-gray-900 transition duration-250 ease-in-out"
                   >
                     Laundry Room Remodeling
                   </Link>
@@ -87,7 +87,7 @@ const Footer = () => {
                 <li className="mb-2">
                   <Link
                     to="/flooring"
-                    className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out"
+                    className="text-[#013289] hover:text-gray-900 transition duration-250 ease-in-out"
                   >
                     Flooring
                   </Link>
@@ -95,7 +95,7 @@ const Footer = () => {
                 <li className="mb-2">
                   <Link
                     to="/quartz"
-                    className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out"
+                    className="text-[#013289] hover:text-gray-900 transition duration-250 ease-in-out"
                   >
                     Quartz
                   </Link>

@@ -100,3 +100,8 @@ body {
   margin-top: 5px;
 }
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
