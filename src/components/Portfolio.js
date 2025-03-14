@@ -17,8 +17,7 @@ const Portfolio = () => {
             {
               name: "John Doe",
               rating: 5,
-              review:
-                "Excellent product! Highly recommended! Excellent product! Highly recommended! Excellent product! Highly recommended! Excellent product! Highly recommended! Excellent product! Highly recommended! Excellent product! Highly recommended!",
+              review: "We recently had our home remodeled, and the experience was fantastic! The team was professional, detail-oriented, and completed the project on time. Our kitchen and living room now look stunning, and the quality of work exceeded our expectations. Highly recommend their services!  ",
             },
             {
               name: "Jane Smith",
@@ -93,9 +92,8 @@ const ReviewText = ({ text }) => {
   return (
     <div>
       <span>
-        {isExpanded
-          ? text
-          : `${text.slice(0, 100)}...`} {/* Truncate after 100 chars */}
+        {isExpanded ? text : `${text.slice(0, 100)}...`}{" "}
+        {/* Truncate after 100 chars */}
       </span>
       {text.length > 100 && (
         <button

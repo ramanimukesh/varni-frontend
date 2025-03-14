@@ -29,7 +29,7 @@ const Intro = () => {
             </h2>
             <div>
               <p className="my-3 text-xl text-gray-600 font-semibold">
-                Swaminarayan Construction Kitchens and Remodeling is recognized as Georgia’s most
+                Swaminarayan Construction is recognized as Georgia’s most
                 skilled and detail-oriented kitchen installation expert. Based
                 in Atlanta, GA, our team of carpenters brings over 5 years of
                 combined experience to every project. Founded by a dedicated

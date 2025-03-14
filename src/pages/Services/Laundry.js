@@ -80,12 +80,13 @@ const Laundry = () => {
           <div className="lg:w-1/2 flex flex-col lg:mx-4 justify-center">
             <img
               alt="card img"
-              className="rounded-t w-full h-[600px] object-cover"
+              className="rounded-t w-full h-[250px] sm:h-[300px] md:h-[450px] lg:h-[600px] object-cover"
               src={img4}
               data-aos="fade-left"
               data-aos-delay="700"
             />
           </div>
+
           <div
             className="flex-col my-4 text-center lg:text-left lg:my-0 lg:justify-end w-full lg:w-1/2 px-8"
             data-aos="zoom-in"
@@ -118,7 +119,7 @@ const Laundry = () => {
             </div>
             <Link
               to="/contact"
-              className="text-white bg-blue-900 hover:bg-blue-800 inline-flex items-center justify-center w-full px-6 py-2 my-4 text-lg shadow-xl rounded-2xl sm:w-auto sm:mb-0 group"
+              className="text-white bg-blue-900 hover:bg-blue-800 inline-flex items-center justify-center px-6 py-2 my-4 text-lg shadow-xl rounded-2xl sm:w-auto sm:mb-0 group"
             >
               Contact us
               <svg
@@ -140,8 +141,7 @@ const Laundry = () => {
       <section data-aos="zoom-in-down">
         <div className="my-4 py-4">
           <h2 className="my-2 text-center text-3xl text-blue-900 uppercase font-bold">
-            LAUNDRY Remodeling From A-Z with attention to the smallest
-            detail
+            LAUNDRY Remodeling From A-Z with attention to the smallest detail
           </h2>
 
           <div className="flex justify-center">
@@ -177,12 +177,12 @@ const Laundry = () => {
           a tidy environment that makes washing laundry simpler and more fun.
         </p>
       </div>
-      <div className="mt-10 mb-16 flex flex-col items-center text-center">
+      <div className="mt-10 mb-16 flex flex-col items-center px-4 sm:px-6 text-left">
         <h2 className="my-4 text-3xl text-blue-900 uppercase font-bold">
           Here are some factors that are often considered while redesigning a
-          laundry room:{" "}
+          laundry room:
         </h2>
-        <ul className=" text-2xl text-gray-600 my-3 text-xl text-gray-600 ">
+        <ul className="text-2xl text-gray-600 my-3 text-xl text-gray-600">
           <li>
             <strong>Upgraded Appliances:</strong> Modern washers and dryers
             offer energy efficiency, larger capacities, intelligent controls,
@@ -216,7 +216,7 @@ const Laundry = () => {
 
         <Link
           to="/contact"
-          className="text-white bg-blue-900 hover:bg-blue-800 inline-flex items-center justify-center w-full px-6 py-2 my-4 text-lg shadow-xl rounded-2xl sm:w-auto sm:mb-0 group"
+          className="text-white bg-blue-900 hover:bg-blue-800 inline-flex items-center justify-center px-6 py-2 my-4 text-lg shadow-xl rounded-2xl sm:w-auto sm:mb-0 group"
         >
           Contact us
           <svg
@@ -233,6 +233,7 @@ const Laundry = () => {
           </svg>
         </Link>
       </div>
+
       <Footer />
     </>
   );

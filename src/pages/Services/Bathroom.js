@@ -126,7 +126,7 @@ const Bathroom = () => {
             </div>
             <Link
               to="/contact"
-              className="text-white bg-blue-900 hover:bg-blue-800 inline-flex items-center justify-center w-full px-6 py-2 my-4 text-lg shadow-xl rounded-2xl sm:w-auto sm:mb-0 group"
+              className="text-white bg-blue-900 hover:bg-blue-800 inline-flex items-center justify-center px-6 py-2 my-4 text-lg shadow-xl rounded-2xl sm:w-auto sm:mb-0 group"
             >
               Contact us
               <svg
@@ -213,18 +213,18 @@ const Bathroom = () => {
 
       <div className="mt-10 mb-16 flex flex-col items-center text-center">
         <h2 className="my-4 text-3xl text-blue-900 uppercase font-bold">
-          Scheduling & Consultation for Kitchen Renovation
+          Scheduling & Consultation for Bathroom Renovation
         </h2>
         <p className="w-3/4 text-lg text-gray-700">
           Being a leading provider of kitchen remodeling services, delivering
-          “pure gold” in artistry and material quality is KDO Kitchens and
-          Remodeling. We complete all renovations without worry, whether you
+          “pure gold” in artistry and material quality is Swaminarayan Construction. 
+          We complete all renovations without worry, whether you
           want to add more space, enhance efficiency, create a universal kitchen
           design, or create a kid-friendly kitchen.
         </p>
         <Link
           to="/contact"
-          className="text-white bg-blue-900 hover:bg-blue-800 inline-flex items-center justify-center w-full px-6 py-2 my-4 text-lg shadow-xl rounded-2xl sm:w-auto sm:mb-0 group"
+          className="text-white bg-blue-900 hover:bg-blue-800 inline-flex items-center justify-center px-6 py-2 my-4 text-lg shadow-xl rounded-2xl sm:w-auto sm:mb-0 group"
         >
           Contact us
           <svg

@@ -101,7 +101,7 @@ const Kitchen = () => {
               Professional Renovation and Remodeling Services in Atlanta, GA
             </h3>
             <div>
-              <p className="my-3 text-xl text-gray-600 font-semibold text-justify">
+              <p className="my-3 text-xl text-gray-600 font-semibold text-left">
                 Swaminarayan Construction Kitchens and Remodeling is recognized
                 as Georgia’s most skilled and detail-oriented kitchen
                 installation expert. Based in Atlanta, GA, our team of
@@ -208,7 +208,7 @@ const Kitchen = () => {
       </div> */}
 
       <div className="w-full py-12 bg-gray-100">
-        <h2 className="text-center text-4xl text-blue-900 font-extrabold uppercase mb-10">
+        <h2 className="my-4 text-3xl text-blue-900 uppercase font-bold text-center">
           Kitchen Design Styles
         </h2>
 
@@ -328,14 +328,14 @@ const Kitchen = () => {
         </h2>
         <p className="w-3/4 text-lg text-gray-700">
           Being a leading provider of kitchen remodeling services, delivering
-          “pure gold” in artistry and material quality is KDO Kitchens and
-          Remodeling. We complete all renovations without worry, whether you
+          “pure gold” in artistry and material quality is Swaminarayan Construction.
+          We complete all renovations without worry, whether you
           want to add more space, enhance efficiency, create a universal kitchen
           design, or create a kid-friendly kitchen.
         </p>
         <Link
           to="/contact"
-          className="text-white bg-blue-900 hover:bg-blue-800 inline-flex items-center justify-center w-full px-6 py-2 my-4 text-lg shadow-xl rounded-2xl sm:w-auto sm:mb-0 group"
+          className="text-white bg-blue-900 hover:bg-blue-800 inline-flex items-center justify-center px-6 py-2 my-4 text-lg shadow-xl rounded-2xl sm:w-auto sm:mb-0 group"
         >
           Contact us
           <svg
