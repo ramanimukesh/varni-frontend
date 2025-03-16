@@ -10,18 +10,7 @@ const Footer = () => {
           {/* Top area: Blocks */}
           <div className="grid sm:grid-cols-12 gap-5 py-8 md:py-12 border-t border-gray-200 lg:ml-11">
             {/* 1st block */}
-            <div className="col-span-12 lg:col-span-4">
-              <div className="box-border border-b-4 border-blue-900 p-8 bg-gray-200 text-gray-600 text-center rounded-lg xl:w-80 mx-auto">
-                <h3 className="font-bold text-4xl mb-4">
-                  Swaminarayan Construction
-                </h3>
-                <div className="text-md font-medium text-gray-600">
-                  <p>7785 Cavendish Place</p>
-                  <p>Suwanee</p>
-                  <p>GA 30024</p>
-                </div>
-              </div>
-            </div>
+
 
             {/* 2nd block */}
             <div className="col-span-6 md:col-span-6 lg:col-span-1 ml-7 mx-auto">

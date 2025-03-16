@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import NavLinks from "../Navbar/NavLinks";
-import img from "../../images/logo/company_logo.jpeg";
+import img from "../../images/logo/company_logo.png";
 import { HashLink } from "react-router-hash-link";
 
 const NavBar = () => {
@@ -43,13 +43,12 @@ const NavBar = () => {
           </button>
 
           {/* Logo */}
-          <HashLink smooth to="/#hero">
-            <img
-              src={img}
-              alt="Swaminarayan Construction Logo"
-              className="h-16 sm:h-16 md:h-18 lg:h-22"
-            />
-          </HashLink>
+           <img
+             src={img}
+             alt="Swaminarayan Construction LLC"
+             title="Swaminarayan Construction LLC"
+             className="h-16 sm:h-16 md:h-18 lg:h-22"
+           />
         </div>
 
         {/* NavLinks - Desktop */}
@@ -62,12 +61,19 @@ const NavBar = () => {
       {isOpen && (
         <div
           ref={sidebarRef}
-          className="fixed top-0 left-0 w-3/4 h-full bg-white shadow-xl z-40 p-6 flex flex-col space-y-4 lg:hidden"
+          className="fixed top-0 left-0 w-3/4 h-full bg-white shadow-xl z-40 p-6 flex flex-col items-center space-y-6 lg:hidden"
           style={{ maxWidth: "75vw" }}
         >
           <button className="self-end text-xl" onClick={handleClick}>
             ✖️
           </button>
+             {/* Logo */}
+             <img
+               src={img}
+               alt="Swaminarayan Construction LLC"
+               title="Swaminarayan Construction LLC"
+               className="h-12 sm:h-14 md:h-16"
+             />
           <NavLinks closeSidebar={() => setIsOpen(false)} />
         </div>
       )}
