@@ -2,9 +2,9 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Phone } from "lucide-react";
 
-const NavLinks = () => {
+const NavLinks = ({ closeSidebar }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef(null); 
+  const dropdownRef = useRef(null);
   const buttonRef = useRef(null);
 
   // Smooth scroll function
@@ -15,13 +15,17 @@ const NavLinks = () => {
         behavior: "smooth",
         block: "start",
       });
+      closeSidebar(); // Close sidebar after clicking a link
     }
   };
 
-  const handleDropdownToggle = () => {
-    setIsOpen((prev) => !prev);
+  // Scroll to top when clicking "Home"
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    closeSidebar();
   };
 
+  // Close dropdown if clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -30,11 +34,10 @@ const NavLinks = () => {
         buttonRef.current &&
         !buttonRef.current.contains(event.target)
       ) {
-        setIsOpen(false); 
+        setIsOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
-
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -44,14 +47,14 @@ const NavLinks = () => {
     <>
       <Link
         className="px-4 font-extrabold text-blue-900 hover:text-blue-900"
-        to="/"
-        onClick={() => smoothScroll("home")}
+        to="/#"
+        onClick={scrollToTop}
       >
         HOME
       </Link>
       <Link
         className="px-4 font-extrabold text-blue-900 hover:text-blue-900"
-        to="/"
+        to="/#"
         onClick={() => smoothScroll("about")}
       >
         ABOUT
@@ -60,7 +63,7 @@ const NavLinks = () => {
       <div className="relative inline-block" ref={dropdownRef}>
         <button
           className="px-4 font-extrabold text-blue-900 hover:text-blue-900"
-          onClick={handleDropdownToggle} // Toggle dropdown on button click
+          onClick={() => setIsOpen((prev) => !prev)}
           ref={buttonRef}
         >
           SERVICES
@@ -68,63 +71,27 @@ const NavLinks = () => {
 
         {isOpen && (
           <ul className="absolute left-0 mt-2 w-72 bg-white border border-gray-200 rounded-lg shadow-2xl">
-            <li>
-              <Link
-                className="block px-6 py-2 text-lg font-medium text-gray-700 hover:bg-gray-200 transition"
-                to="/kitchen"
-                onClick={() => smoothScroll("service1")}
-              >
-                Kitchen Remodeling
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="block px-6 py-2 text-lg font-medium text-gray-700 hover:bg-gray-200 transition"
-                to="/bathroom"
-                onClick={() => smoothScroll("service2")}
-              >
-                Bathroom Remodeling
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="block px-6 py-2 text-lg font-medium text-gray-700 hover:bg-gray-200 transition"
-                to="/laundry"
-                onClick={() => smoothScroll("service3")}
-              >
-                Laundry Room Remodeling
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="block px-6 py-2 text-lg font-medium text-gray-700 hover:bg-gray-200 transition"
-                to="/flooring"
-                onClick={() => smoothScroll("service4")}
-              >
-                Flooring
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="block px-6 py-2 text-lg font-medium text-gray-700 hover:bg-gray-200 transition"
-                to="/quartz"
-                onClick={() => smoothScroll("service5")}
-              >
-                Quartz
-              </Link>
-            </li>
+            {[
+              { label: "Kitchen Remodeling", id: "service1", path: "/kitchen" },
+              { label: "Bathroom Remodeling", id: "service2", path: "/bathroom" },
+              { label: "Laundry Room Remodeling", id: "service3", path: "/laundry" },
+              { label: "Flooring", id: "service4", path: "/flooring" },
+              { label: "Quartz", id: "service5", path: "/quartz" },
+            ].map(({ label, id, path }) => (
+              <li key={id}>
+                <Link
+                  className="block px-6 py-2 text-lg font-medium text-gray-700 hover:bg-gray-200 transition"
+                  to={path}
+                  onClick={() => smoothScroll(id)}
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
           </ul>
         )}
-
-
       </div>
 
-      {/* <Link
-        className="px-4 font-extrabold text-blue-900 hover:text-blue-900"
-        to="/#recent-projects"
-      >
-        RECENT PROJECTS
-      </Link> */}
       <Link
         className="px-4 font-extrabold text-blue-900 hover:text-blue-900"
         to="/#"
@@ -138,12 +105,6 @@ const NavLinks = () => {
       >
         BLOG
       </Link>
-      {/* <Link
-        className="px-4 font-extrabold text-blue-900 hover:text-blue-900"
-        to="/#press"
-      >
-        PRESS
-      </Link> */}
       <Link
         className="px-4 font-extrabold text-blue-900 hover:text-blue-900"
         to="/contact"
@@ -152,7 +113,6 @@ const NavLinks = () => {
       </Link>
       <button
         className="text-white bg-blue-900 hover:bg-blue-800 inline-flex items-center justify-center w-auto px-6 py-3 shadow-xl rounded-xl"
-        // to="/get-demo"
       >
         <Phone className="w-5 h-5 mr-2" /> 
         855-55-SWAMI

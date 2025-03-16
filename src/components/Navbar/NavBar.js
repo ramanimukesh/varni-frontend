@@ -1,12 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import NavLinks from "../Navbar/NavLinks";
 import { HashLink } from "react-router-hash-link";
 
 const NavBar = () => {
   const [top, setTop] = useState(!window.scrollY);
   const [isOpen, setIsOpen] = useState(false);
+  const sidebarRef = useRef(null);
 
   const handleClick = () => setIsOpen(!isOpen);
+
+  // Close sidebar when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isOpen]);
 
   useEffect(() => {
     const scrollHandler = () =>
@@ -23,7 +41,7 @@ const NavBar = () => {
       style={{ overflow: "visible" }}
     >
       <div className="flex items-center justify-between py-3 px-4 lg:px-12 w-full">
-        {/* Left Side - Logo & Hamburger (Closer in mobile) */}
+        {/* Left Side - Logo & Hamburger */}
         <div className="flex items-center">
           {/* Hamburger Menu - Mobile Only */}
           <button className="p-1 text-blue-900 lg:hidden mr-2" onClick={handleClick}>
@@ -38,22 +56,23 @@ const NavBar = () => {
           </HashLink>
         </div>
 
-        {/* NavLinks - Web View Only */}
+        {/* NavLinks - Desktop */}
         <div className="hidden lg:flex space-x-6 items-center">
-          <NavLinks />
+          <NavLinks closeSidebar={() => setIsOpen(false)} />
         </div>
       </div>
 
-      {/* Mobile Sidebar - Not covering the full screen */}
+      {/* Mobile Sidebar */}
       {isOpen && (
         <div
+          ref={sidebarRef}
           className="fixed top-0 left-0 w-3/4 h-full bg-white shadow-xl z-40 p-6 flex flex-col space-y-4 lg:hidden"
-          style={{ maxWidth: "75vw" }} // Sidebar takes only 75% of screen width
+          style={{ maxWidth: "75vw" }}
         >
           <button className="self-end text-xl" onClick={handleClick}>
             ✖️
           </button>
-          <NavLinks />
+          <NavLinks closeSidebar={() => setIsOpen(false)} />
         </div>
       )}
     </nav>
