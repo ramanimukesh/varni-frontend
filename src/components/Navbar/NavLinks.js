@@ -54,7 +54,7 @@ const NavLinks = ({ closeSidebar }) => {
       </Link>
       <Link
         className="px-4 font-extrabold text-blue-900 hover:text-blue-900"
-        to="/#"
+        to="/"
         onClick={() => smoothScroll("about")}
       >
         ABOUT
@@ -94,7 +94,7 @@ const NavLinks = ({ closeSidebar }) => {
 
       <Link
         className="px-4 font-extrabold text-blue-900 hover:text-blue-900"
-        to="/#"
+        to="/"
         onClick={() => smoothScroll("portfolio")}
       >
         REVIEWS
@@ -108,6 +108,7 @@ const NavLinks = ({ closeSidebar }) => {
       <Link
         className="px-4 font-extrabold text-blue-900 hover:text-blue-900"
         to="/contact"
+        onClick={scrollToTop}
       >
         CONTACT
       </Link>
