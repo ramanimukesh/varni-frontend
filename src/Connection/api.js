@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const use = axios.create({
-    baseURL: "http://localhost:5000",
+    baseURL: "https://varni-backend.onrender.com",
     headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
