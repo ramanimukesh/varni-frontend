@@ -119,7 +119,7 @@ const Contact = () => {
     try {
       // API call to submit the form data
       const response = await userContact(formData);
-      if (response.status === 200) {
+      if (response.status === 201) {
         Notiflix.Report.success("Success", "Your message has been sent successfully!", "Okay");
         setFormData({
           name: "",
