@@ -3,11 +3,13 @@ import NavBar from "../components/Navbar/NavBar";
 import Footer from "../components/Footer";
 import { useDocTitle } from "../components/CustomHook";
 import Notiflix from "notiflix";
-import { userContact } from "./http/api";
+import { userContact } from "./http/api"; // Import the API call
 import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact = () => {
   useDocTitle("SWC");
+
+  const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -45,6 +47,7 @@ const Contact = () => {
 
   const handleCaptchaChange = (value) => {
     setFormData({ ...formData, captcha: value });
+    setIsCaptchaVerified(!!value); // Set the captcha verification state
     validateField("captcha", value);
   };
 
@@ -114,21 +117,26 @@ const Contact = () => {
     document.getElementById("submitBtn").innerHTML = "Loading...";
 
     try {
-      // const response = await userContact(formData);
-      Notiflix.Report.success("Success", "Your message has been sent successfully!", "Okay");
-      setFormData({
-        name: "",
-        lastname: "",
-        email: "",
-        phone: "",
-        address: "",
-        zip: "",
-        message: "",
-        service: "",
-        project: "",
-        media: "",
-        captcha: "" // Reset captcha after successful form submission
-      });
+      // API call to submit the form data
+      const response = await userContact(formData);
+      if (response.status === 200) {
+        Notiflix.Report.success("Success", "Your message has been sent successfully!", "Okay");
+        setFormData({
+          name: "",
+          lastname: "",
+          email: "",
+          phone: "",
+          address: "",
+          zip: "",
+          message: "",
+          service: "",
+          project: "",
+          media: "",
+          captcha: "" // Reset captcha after successful form submission
+        });
+      } else {
+        throw new Error(response.data.message || "An error occurred");
+      }
     } catch (error) {
       Notiflix.Report.failure("Error", error.response?.data?.message || "An error occurred", "Okay");
     } finally {
@@ -156,7 +164,7 @@ const Contact = () => {
                       id={field}
                       name={field}
                       className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none"
-                      type={field === "email" ? "email" : "text"}
+                      type={field === "email" ? "email" : field === "phone" ? "number" : "text"}
                       value={formData[field]}
                       onChange={handleChange}
                     />
@@ -211,7 +219,7 @@ const Contact = () => {
                       id={field}
                       name={field}
                       className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none"
-                      type="text"
+                      type={field === "zip" ? "number" : "text"}
                       value={formData[field]}
                       onChange={handleChange}
                     />
@@ -254,7 +262,7 @@ const Contact = () => {
 
               <div className="mt-5">
                 <ReCAPTCHA
-                  sitekey="6LeUivgqAAAAANPmTT4lg9Cz26Xsw1rxooEqaqVz" // Use your actual site key here
+                  sitekey={process.env.REACT_APP_RECAPTCHA_SITEKEY}
                   onChange={handleCaptchaChange}
                 />
                 {errors.captcha && <p className="text-red-500 text-sm">{errors.captcha}</p>}
@@ -265,6 +273,7 @@ const Contact = () => {
                   type="submit"
                   id="submitBtn"
                   className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700"
+                  disabled={!isCaptchaVerified} // Disable the submit button based on CAPTCHA verification
                 >
                   Send Message
                 </button>

@@ -97,7 +97,7 @@ const Footer = () => {
               <div className="text-xl mb-6">Contact Us</div>
 
               <div className="text-md font-medium mb-6 flex items-center">
-                <Phone className="w-5 h-5 mr-2" /> 855-55-SWAMI
+                <Phone className="w-5 h-5 mr-2" /><label title="855-557-9264">855-55-SWAMI</label>
               </div>
 
               <div className="mx-auto text-center mt-2">
