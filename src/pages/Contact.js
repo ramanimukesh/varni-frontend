@@ -241,8 +241,9 @@ const Contact = () => {
                 >
                   <option value=""></option>
                   <option value="Social Media">Social Media</option>
-                  <option value="Google Search">Google Search</option>
+                  <option value="Google">Google Search</option>
                   <option value="Referral">Referral</option>
+                  <option value="Magazine">Magazine</option>
                   <option value="Others">Others</option>
                 </select>
                 {errors.media && <p className="text-red-500 text-sm">{errors.media}</p>}
