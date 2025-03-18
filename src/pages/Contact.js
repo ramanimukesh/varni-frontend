@@ -3,78 +3,134 @@ import NavBar from "../components/Navbar/NavBar";
 import Footer from "../components/Footer";
 import { useDocTitle } from "../components/CustomHook";
 import Notiflix from "notiflix";
-import { userContact } from "./http/api"; 
+import { userContact } from "./http/api";
+import ReCAPTCHA from "react-google-recaptcha";
 
-const Contact = (props) => {
+const Contact = () => {
   useDocTitle("SWC");
 
-  const [name, setName] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
-  const [zip, setZip] = useState("");
-  const [message, setMessage] = useState("");
-  const [service, setService] = useState("");
-  const [project, setProject] = useState("");
-  const [media, setMedia] = useState("");
-  const [errors, setErrors] = useState([]);
+  const [formData, setFormData] = useState({
+    name: "",
+    lastname: "",
+    email: "",
+    phone: "",
+    address: "",
+    zip: "",
+    message: "",
+    service: "",
+    project: "",
+    media: "",
+    captcha: "" // Store CAPTCHA response
+  });
 
-  const clearErrors = () => setErrors([]);
+  const [errors, setErrors] = useState({
+    name: "",
+    lastname: "",
+    email: "",
+    phone: "",
+    address: "",
+    zip: "",
+    service: "",
+    project: "",
+    media: "",
+    message: "",
+    captcha: "" // Error for CAPTCHA
+  });
 
-  const clearInput = () => {
-    setName("");
-    setLastname("");
-    setEmail("");
-    setPhone("");
-    setAddress("");
-    setZip("");
-    setMessage("");
-    setService("");
-    setProject("");
-    setMedia("");
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    validateField(name, value);
+  };
+
+  const handleCaptchaChange = (value) => {
+    setFormData({ ...formData, captcha: value });
+    validateField("captcha", value);
+  };
+
+  const validateField = (name, value) => {
+    let newErrors = { ...errors };
+
+    switch (name) {
+      case "email":
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        newErrors.email = !value ? "Email is required" : !emailRegex.test(value) ? "Enter a valid email address" : "";
+        break;
+      case "phone":
+        const phoneRegex = /^[0-9]{10}$/;
+        newErrors.phone = !value ? "Phone number is required" : !phoneRegex.test(value) ? "Enter a valid 10-digit phone number" : "";
+        break;
+      case "zip":
+        const zipRegex = /^[0-9]{5}$/;
+        newErrors.zip = !value ? "Zip code is required" : !zipRegex.test(value) ? "Enter a valid 5-digit zip code" : "";
+        break;
+      case "name":
+        newErrors.name = !value ? "First Name is required" : "";
+        break;
+      case "lastname":
+        newErrors.lastname = !value ? "Last Name is required" : "";
+        break;
+      case "address":
+        newErrors.address = !value ? "Address is required" : "";
+        break;
+      case "service":
+        newErrors.service = !value ? "Please select a service" : "";
+        break;
+      case "project":
+        newErrors.project = !value ? "Please specify your project start time" : "";
+        break;
+      case "media":
+        newErrors.media = !value ? "Please select how you heard about us" : "";
+        break;
+      case "message":
+        newErrors.message = !value ? "Message is required" : "";
+        break;
+      case "captcha":
+        newErrors.captcha = !value ? "Please complete the CAPTCHA" : "";
+        break;
+      default:
+        break;
+    }
+
+    setErrors(newErrors);
+  };
+
+  const validateForm = () => {
+    let formValid = true;
+    Object.keys(formData).forEach((key) => {
+      if (!formData[key] && key !== "captcha") {
+        validateField(key, formData[key]);
+        formValid = false;
+      }
+    });
+    return formValid;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validateForm()) return;
+
     document.getElementById("submitBtn").disabled = true;
     document.getElementById("submitBtn").innerHTML = "Loading...";
 
     try {
-      // Pass an object with name, email, and message
-      const registration = await userContact({
-        name,
-        lastname,
-        email,
-        phone,
-        address,
-        zip,
-        message,
-        service,
-        project,
-        media,
+      // const response = await userContact(formData);
+      Notiflix.Report.success("Success", "Your message has been sent successfully!", "Okay");
+      setFormData({
+        name: "",
+        lastname: "",
+        email: "",
+        phone: "",
+        address: "",
+        zip: "",
+        message: "",
+        service: "",
+        project: "",
+        media: "",
+        captcha: "" // Reset captcha after successful form submission
       });
-      console.log("Send Data:", registration);
-
-      // Clear inputs and show success message
-      clearInput();
-      Notiflix.Report.success(
-        "Success",
-        "Your message has been sent successfully!",
-        "Okay"
-      );
     } catch (error) {
-      const { response } = error;
-      if (response?.status === 500) {
-        Notiflix.Report.failure(
-          "An error occurred",
-          response.data.message,
-          "Okay"
-        );
-      }
-      if (response?.data?.errors) {
-        setErrors(response.data.errors);
-      }
+      Notiflix.Report.failure("Error", error.response?.data?.message || "An error occurred", "Okay");
     } finally {
       document.getElementById("submitBtn").disabled = false;
       document.getElementById("submitBtn").innerHTML = "Send Message";
@@ -84,199 +140,131 @@ const Contact = (props) => {
   return (
     <>
       <NavBar />
-      <div
-        id="contact"
-        className="flex justify-center items-center mt-8 w-full bg-white py-12 lg:py-24"
-      >
-        <div
-          className="container mx-auto my-8 px-4 lg:px-20"
-          data-aos="zoom-in"
-        >
+      <div className="flex justify-center items-center mt-8 w-full bg-white py-12 lg:py-24">
+        <div className="container mx-auto px-4 lg:px-20">
           <form onSubmit={handleSubmit}>
-            <div className="w-full bg-white p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl">
-              <div className="flex">
-                <h1 className="font-bold text-center lg:text-left text-blue-900 uppercase text-4xl">
-                  Get In Touch
-                </h1>
-              </div>
-
+            <div className="bg-white p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl">
+              <h1 className="font-bold text-center lg:text-left text-blue-900 uppercase text-4xl">Get In Touch</h1>
+              <h3 className="my-3 text-xl text-gray-600 font-semibold text-left text-justify">Have a kitchen or bathroom remodeling project in mind? Let Swaminarayan Construction’ years of knowledge and experience work for you. Fill out our online form now to schedule your in-home consultation and cost estimate.</h3>
               <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
-                {/* First Name */}
-                <div>
-                  <label htmlFor="name" className="block text-gray-700">First Name*</label>
-                  <input
-                    id="name"
-                    name="name"
-                    className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    onKeyUp={clearErrors}
-                  />
-                  {errors?.name && (
-                    <p className="text-red-500 text-sm">{errors.name}</p>
-                  )}
-                </div>
-                {/* Last Name */}
-                <div>
-                  <label htmlFor="lastname" className="block text-gray-700">Last Name*</label>
-                  <input
-                    id="lastname"
-                    name="lastname"
-                    className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                    type="text"
-                    value={lastname}
-                    onChange={(e) => setLastname(e.target.value)}
-                    onKeyUp={clearErrors}
-                  />
-                  {errors?.lastname && (
-                    <p className="text-red-500 text-sm">{errors.lastname}</p>
-                  )}
-                </div>
-
-                {/* Email */}
-                <div>
-                  <label htmlFor="email" className="block text-gray-700">Email*</label>
-                  <input
-                    id="email"
-                    name="email"
-                    className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    onKeyUp={clearErrors}
-                  />
-                  {errors?.email && (
-                    <p className="text-red-500 text-sm">{errors.email}</p>
-                  )}
-                </div>
-                <div>
-                  <label htmlFor="phone" className="block text-gray-700">Phone*</label>
-                  <input
-                    id="phone"
-                    name="phone"
-                    className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                    type="text"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    onKeyUp={clearErrors}
-                  />
-                  {errors?.phone && (
-                    <p className="text-red-500 text-sm">{errors.phone}</p>
-                  )}
-                </div>
+                {["name", "lastname", "email", "phone"].map((field) => (
+                  <div key={field}>
+                    <label htmlFor={field} className="block text-gray-700">
+                      {field === "name" ? "First Name" : field === "lastname" ? "Last Name" : field.charAt(0).toUpperCase() + field.slice(1)} *
+                    </label>
+                    <input
+                      id={field}
+                      name={field}
+                      className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none"
+                      type={field === "email" ? "email" : "text"}
+                      value={formData[field]}
+                      onChange={handleChange}
+                    />
+                    {errors[field] && <p className="text-red-500 text-sm">{errors[field]}</p>}
+                  </div>
+                ))}
               </div>
+
               <div className="grid grid-cols-1 gap-5 mt-5">
-                <div>
-                  <label htmlFor="service" className="block text-gray-700">Select a Service*</label>
-                  <select
-                    id="service"
-                    className="w-full bg-gray-100 text-gray-400 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                    value={service}
-                    onChange={(e) => setService(e.target.value)}
-                  >
-                    <option value=""></option>
-                    <option value="Kitchen Remodeling">Kitchen Remodeling</option>
-                    <option value="Bathroom Remodeling">Bathroom Remodeling</option>
-                    <option value="Laundry Room Remodeling">Laundry Room Remodeling</option>
-                    <option value="Flooring">Flooring</option>
-                    <option value="Quartz">Quartz</option>
-                  </select>
-                  {errors?.service && (
-                    <p className="text-red-500 text-sm">{errors.service}</p>
-                  )}
-                </div>
-                <div>
-                  <label htmlFor="project" className="block text-gray-700">When are you planning to start your project?*</label>
-                  <select
-                    id="project"
-                    className="w-full bg-gray-100 text-gray-400 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                    value={project}
-                    onChange={(e) => setProject(e.target.value)}
-                  >
-                    <option value=""></option>
-                    <option value="0 - 3 Months">0 - 3 Months</option>
-                    <option value="3 - 6 Months">3 - 6 Months</option>
-                    <option value="+6 Months">+6 Months</option>
-                  </select>
-                  {errors?.project && (
-                    <p className="text-red-500 text-sm">{errors.project}</p>
-                  )}
-                </div>
+                {["service", "project"].map((field) => (
+                  <div key={field}>
+                    <label htmlFor={field} className="block text-gray-700">
+                      {field === "service" ? "Select a Service" : "When are you planning to start your project?"} *
+                    </label>
+                    <select
+                      id={field}
+                      name={field}
+                      className="w-full bg-gray-100 text-gray-400 mt-2 p-3 rounded-lg focus:outline-none"
+                      value={formData[field]}
+                      onChange={handleChange}
+                    >
+                      <option value=""></option>
+                      {field === "service" && (
+                        <>
+                          <option value="Kitchen Remodeling">Kitchen Remodeling</option>
+                          <option value="Bathroom Remodeling">Bathroom Remodeling</option>
+                          <option value="Laundry Room Remodeling">Laundry Room Remodeling</option>
+                          <option value="Flooring">Flooring</option>
+                          <option value="Quartz">Quartz</option>
+                        </>
+                      )}
+                      {field === "project" && (
+                        <>
+                          <option value="0 - 3 Months">0 - 3 Months</option>
+                          <option value="3 - 6 Months">3 - 6 Months</option>
+                          <option value="+6 Months">+6 Months</option>
+                        </>
+                      )}
+                    </select>
+                    {errors[field] && <p className="text-red-500 text-sm">{errors[field]}</p>}
+                  </div>
+                ))}
               </div>
 
-              <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
-                <div>
-                  <label htmlFor="address" className="block text-gray-700">Home Address*</label>
-                  <input
-                    id="address"
-                    name="address"
-                    className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                    type="text"
-                    value={address}
-                    onChange={(e) => setAddress(e.target.value)}
-                    onKeyUp={clearErrors}
-                  />
-                  {errors?.address && (
-                    <p className="text-red-500 text-sm">{errors.address}</p>
-                  )}
-                </div>
-                <div>
-                  <label htmlFor="zip" className="block text-gray-700">Zip Code*</label>
-                  <input
-                    id="zip"
-                    name="zip"
-                    className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                    type="text"
-                    value={zip}
-                    onChange={(e) => setZip(e.target.value)}
-                    onKeyUp={clearErrors}
-                  />
-                  {errors?.zip && (
-                    <p className="text-red-500 text-sm">{errors.zip}</p>
-                  )}
-                </div>
-              </div>
               <div className="grid grid-cols-1 gap-5 mt-5">
-                <div>
-                  <label htmlFor="media" className="block text-gray-700">How did you hear about us?*</label>
-                  <select
-                    id="media"
-                    className="w-full bg-gray-100 text-gray-400 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                    value={media}
-                    onChange={(e) => setMedia(e.target.value)}
-                  >
-                    <option value=""></option>
-                    <option value="Google">Google</option>
-                    <option value="Magazine">Magazine</option>
-                    <option value="Radio">Radio</option>
-                  </select>
-                  {errors?.media && (
-                    <p className="text-red-500 text-sm">{errors.media}</p>
-                  )}
-                </div>
+                {["address", "zip"].map((field) => (
+                  <div key={field}>
+                    <label htmlFor={field} className="block text-gray-700">
+                      {field === "address" ? "Home Address" : "Zip Code"} *
+                    </label>
+                    <input
+                      id={field}
+                      name={field}
+                      className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none"
+                      type="text"
+                      value={formData[field]}
+                      onChange={handleChange}
+                    />
+                    {errors[field] && <p className="text-red-500 text-sm">{errors[field]}</p>}
+                  </div>
+                ))}
               </div>
 
-              <div className="my-4">
-                <label htmlFor="message" className="block text-gray-700">Message*</label>
+              <div className="mt-5">
+                <label htmlFor="media" className="block text-gray-700">
+                  How did you hear about us? *
+                </label>
+                <select
+                  id="media"
+                  name="media"
+                  className="w-full bg-gray-100 text-gray-400 mt-2 p-3 rounded-lg focus:outline-none"
+                  value={formData.media}
+                  onChange={handleChange}
+                >
+                  <option value=""></option>
+                  <option value="Social Media">Social Media</option>
+                  <option value="Google Search">Google Search</option>
+                  <option value="Referral">Referral</option>
+                  <option value="Others">Others</option>
+                </select>
+                {errors.media && <p className="text-red-500 text-sm">{errors.media}</p>}
+              </div>
+
+              <div className="mt-5">
+                <label htmlFor="message" className="block text-gray-700">Message *</label>
                 <textarea
                   id="message"
                   name="message"
-                  className="w-full h-32 bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  onKeyUp={clearErrors}
-                ></textarea>
-                {errors?.message && (
-                  <p className="text-red-500 text-sm">{errors.message}</p>
-                )}
+                  className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none"
+                  value={formData.message}
+                  onChange={handleChange}
+                />
+                {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
               </div>
 
-              <div className="my-2 text-center">
+              <div className="mt-5">
+                <ReCAPTCHA
+                  sitekey="6LeUivgqAAAAANPmTT4lg9Cz26Xsw1rxooEqaqVz" // Use your actual site key here
+                  onChange={handleCaptchaChange}
+                />
+                {errors.captcha && <p className="text-red-500 text-sm">{errors.captcha}</p>}
+              </div>
+
+              <div className="mt-8">
                 <button
-                  id="submitBtn"
                   type="submit"
-                  className="bg-blue-700 text-white py-3 px-6 rounded-lg w-full"
+                  id="submitBtn"
+                  className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700"
                 >
                   Send Message
                 </button>

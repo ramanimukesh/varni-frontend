@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import { Phone } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -10,7 +11,6 @@ const Footer = () => {
           {/* Top area: Blocks */}
           <div className="grid sm:grid-cols-12 gap-5 py-8 md:py-12 border-t border-gray-200 lg:ml-11">
             {/* 1st block */}
-
 
             {/* 2nd block */}
             <div className="col-span-6 md:col-span-6 lg:col-span-1 ml-7 mx-auto">
@@ -96,8 +96,10 @@ const Footer = () => {
             <div className="col-span-10  md:col-span-6 text-center mx-auto lg:col-span-3 font-bold text-blue-900">
               <div className="text-xl mb-6">Contact Us</div>
 
-              <div className="text-md font-medium mb-6">855-55-SWAMI</div>
-              <div className="text-md font-medium mb-6">swaminarayanconstructionllc@gmail.com</div>
+              <div className="text-md font-medium mb-6 flex items-center">
+                <Phone className="w-5 h-5 mr-2" /> 855-55-SWAMI
+              </div>
+
               <div className="mx-auto text-center mt-2">
                 <ul className="flex justify-center mb-4 md:mb-0">
                   <li>

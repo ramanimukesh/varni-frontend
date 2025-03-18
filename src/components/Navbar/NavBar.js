@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import NavLinks from "../Navbar/NavLinks";
 import img from "../../images/logo/company_logo.png";
-import { HashLink } from "react-router-hash-link";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,8 +46,8 @@ const NavBar = () => {
              src={img}
              alt="Swaminarayan Construction LLC"
              title="Swaminarayan Construction LLC"
-             className="h-16 sm:h-16 md:h-18 lg:h-22"
-           />
+             className="h-16 sm:h-16 md:h-18 lg:h-22 lg:ml-56" 
+             />
         </div>
 
         {/* NavLinks - Desktop */}
