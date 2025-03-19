@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { Phone } from "lucide-react";
+import '../styles/tooltip.css';
 
 const Footer = () => {
   return (
@@ -18,7 +19,7 @@ const Footer = () => {
               <ul className="text-md">
                 <li className="mb-2">
                   <HashLink
-                    to="#"
+                    to="/"
                     className="text-[#013289] hover:text-gray-900 transition duration-250 ease-in-out"
                   >
                     About
@@ -26,15 +27,7 @@ const Footer = () => {
                 </li>
                 <li className="mb-2">
                   <HashLink
-                    to="#"
-                    className="text-[#013289] hover:text-gray-900 transition duration-250 ease-in-out"
-                  >
-                    Services
-                  </HashLink>
-                </li>
-                <li className="mb-2">
-                  <HashLink
-                    to="#"
+                    to="/contact"
                     className="text-[#013289] hover:text-gray-900 transition duration-250 ease-in-out"
                   >
                     Contact
@@ -97,7 +90,18 @@ const Footer = () => {
               <div className="text-xl mb-6">Contact Us</div>
 
               <div className="text-md font-medium mb-6 flex items-center">
-                <Phone className="w-5 h-5 mr-2" /><label title="855-557-9264">855-55-SWAMI</label>
+                 <Phone className="w-5 h-5 mr-2" />
+                 <label htmlFor="phone" className="tooltip">
+                      855-557-9264
+                      {/* Tooltip Text */}
+                      <span className="tooltip-text">
+                        {/* Phone Icon and Text */}
+                        <span className="tooltip-icon">
+                          <Phone className="w-5 h-5" />
+                        </span>
+                        <span className="tooltip-text-content">855-55-SWAMI</span>
+                      </span>
+                 </label>
               </div>
 
               <div className="mx-auto text-center mt-2">

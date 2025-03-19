@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Phone } from "lucide-react";
+import '../../styles/tooltip.css';
 
-const NavLinks = ({ closeSidebar }) => {
+const NavLinks = ({ scrollToTop }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
   const buttonRef = useRef(null);
@@ -15,14 +16,8 @@ const NavLinks = ({ closeSidebar }) => {
         behavior: "smooth",
         block: "start",
       });
-      closeSidebar(); // Close sidebar after clicking a link
+      setIsOpen(false);
     }
-  };
-
-  // Scroll to top when clicking "Home"
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    closeSidebar();
   };
 
   // Close dropdown if clicking outside
@@ -116,7 +111,17 @@ const NavLinks = ({ closeSidebar }) => {
         className="text-white bg-blue-900 hover:bg-blue-800 inline-flex items-center justify-center w-auto px-6 py-3 shadow-xl rounded-xl"
       >
         <Phone className="w-5 h-5 mr-2" /> 
-        <label title="855-557-9264">855-55-SWAMI</label>
+        <label htmlFor="phone" className="tooltip">
+              855-557-9264
+              {/* Tooltip Text */}
+              <span className="tooltip-text">
+                {/* Phone Icon and Text */}
+                <span className="tooltip-icon">
+                  <Phone className="w-5 h-5" />
+                </span>
+                <span className="tooltip-text-content">855-55-SWAMI</span>
+              </span>
+        </label>
       </button>
     </>
   );

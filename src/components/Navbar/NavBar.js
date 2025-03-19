@@ -8,6 +8,12 @@ const NavBar = () => {
 
   const handleClick = () => setIsOpen(!isOpen);
 
+  // Scroll to top when clicking "Home"
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setIsOpen(false);
+  };
+
   // Close sidebar when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -41,18 +47,19 @@ const NavBar = () => {
             {isOpen ? "✖️" : "☰"}
           </button>
 
-          {/* Logo */}
-           <img
-             src={img}
-             alt="Swaminarayan Construction LLC"
-             title="Swaminarayan Construction LLC"
-             className="h-16 sm:h-16 md:h-18 lg:h-22 lg:ml-56" 
-             />
+          {/* Logo - Clicking it scrolls to the top */}
+          <img
+            src={img}
+            alt="Swaminarayan Construction LLC"
+            title="Swaminarayan Construction LLC"
+            className="h-16 sm:h-16 md:h-18 lg:h-22 lg:ml-56 cursor-pointer" // Added cursor pointer for better UX
+            onClick={scrollToTop} // Scroll to top on logo click
+          />
         </div>
 
         {/* NavLinks - Desktop */}
         <div className="hidden lg:flex space-x-6 items-center">
-          <NavLinks closeSidebar={() => setIsOpen(false)} />
+          <NavLinks scrollToTop={scrollToTop} />
         </div>
       </div>
 
@@ -66,14 +73,16 @@ const NavBar = () => {
           <button className="self-end text-xl" onClick={handleClick}>
             ✖️
           </button>
-             {/* Logo */}
-             <img
-               src={img}
-               alt="Swaminarayan Construction LLC"
-               title="Swaminarayan Construction LLC"
-               className="h-12 sm:h-14 md:h-16"
-             />
-          <NavLinks closeSidebar={() => setIsOpen(false)} />
+          {/* Logo - Clicking it scrolls to the top */}
+          <img
+            src={img}
+            alt="Swaminarayan Construction LLC"
+            title="Swaminarayan Construction LLC"
+            className="h-12 sm:h-14 md:h-16 cursor-pointer" // Added cursor pointer for better UX
+            onClick={scrollToTop} // Scroll to top on logo click
+          />
+
+          <NavLinks scrollToTop={scrollToTop} />
         </div>
       )}
     </nav>

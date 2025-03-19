@@ -15,7 +15,7 @@ const Home = () => {
             <Intro />
             <Services />
             <Portfolio />
-            <Clients />
+            {/* <Clients /> */} {/* This component is commented out for now */}
             <Cta/>
             <Footer />
         </>
