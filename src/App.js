@@ -16,6 +16,7 @@ import Bathroom from './pages/Services/Bathroom';
 import Laundry from './pages/Services/Laundry';
 import Quartz from './pages/Services/Quartz';
 import Flooring from './pages/Services/Flooring';
+import Vendor from './pages/Vendor';
 
 function App() {
   useEffect(() => {
@@ -41,6 +42,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/vendor" element={<Vendor/>}/>
             <Route path= "/kitchen" element={<Kitchen/>}/>
             <Route path= "/bathroom" element={<Bathroom/>}/>
             <Route path= "/laundry" element={<Laundry/>}/>
