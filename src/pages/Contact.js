@@ -3,13 +3,11 @@ import NavBar from "../components/Navbar/NavBar";
 import Footer from "../components/Footer";
 import { useDocTitle } from "../components/CustomHook";
 import Notiflix from "notiflix";
-import { userContact } from "./http/api"; // Import the API call
-import ReCAPTCHA from "react-google-recaptcha";
+import { userContact } from "../Connection/api";
+import ReCAPTCHA from "react-google-recaptcha"; // Import reCAPTCHA
 
 const Contact = () => {
   useDocTitle("SWC");
-
-  const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -21,8 +19,7 @@ const Contact = () => {
     message: "",
     service: "",
     project: "",
-    media: "",
-    captcha: "" // Store CAPTCHA response
+    media: ""
   });
 
   const [errors, setErrors] = useState({
@@ -36,19 +33,22 @@ const Contact = () => {
     project: "",
     media: "",
     message: "",
-    captcha: "" // Error for CAPTCHA
+    captcha: ""
   });
+
+  const [captchaValue, setCaptchaValue] = useState(null); // State to store CAPTCHA response
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    if ((name === "phone" || name === "zip") && !/^\d*$/.test(value)) return; // Allow only numbers
     setFormData({ ...formData, [name]: value });
     validateField(name, value);
   };
 
-  const handleCaptchaChange = (value) => {
-    setFormData({ ...formData, captcha: value });
-    setIsCaptchaVerified(!!value); // Set the captcha verification state
-    validateField("captcha", value);
+  const handleKeyPress = (e) => {
+    if (!/[0-9]/.test(e.key)) {
+      e.preventDefault(); // Prevent non-numeric key press
+    }
   };
 
   const validateField = (name, value) => {
@@ -88,9 +88,6 @@ const Contact = () => {
       case "message":
         newErrors.message = !value ? "Message is required" : "";
         break;
-      case "captcha":
-        newErrors.captcha = !value ? "Please complete the CAPTCHA" : "";
-        break;
       default:
         break;
     }
@@ -101,11 +98,20 @@ const Contact = () => {
   const validateForm = () => {
     let formValid = true;
     Object.keys(formData).forEach((key) => {
-      if (!formData[key] && key !== "captcha") {
+      if (!formData[key]) {
         validateField(key, formData[key]);
         formValid = false;
       }
     });
+
+    if (!captchaValue) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        captcha: "Please complete the CAPTCHA"
+      }));
+      formValid = false;
+    }
+
     return formValid;
   };
 
@@ -117,32 +123,31 @@ const Contact = () => {
     document.getElementById("submitBtn").innerHTML = "Loading...";
 
     try {
-      // API call to submit the form data
       const response = await userContact(formData);
-      if (response.status === 201) {
-        Notiflix.Report.success("Success", "Your message has been sent successfully!", "Okay");
-        setFormData({
-          name: "",
-          lastname: "",
-          email: "",
-          phone: "",
-          address: "",
-          zip: "",
-          message: "",
-          service: "",
-          project: "",
-          media: "",
-          captcha: "" // Reset captcha after successful form submission
-        });
-      } else {
-        throw new Error(response.data.message || "An error occurred");
-      }
+      Notiflix.Report.success("Success", "Your message has been sent successfully!", "Okay");
+      setFormData({
+        name: "",
+        lastname: "",
+        email: "",
+        phone: "",
+        address: "",
+        zip: "",
+        message: "",
+        service: "",
+        project: "",
+        media: ""
+      });
+      setCaptchaValue(null); // Reset CAPTCHA
     } catch (error) {
       Notiflix.Report.failure("Error", error.response?.data?.message || "An error occurred", "Okay");
     } finally {
       document.getElementById("submitBtn").disabled = false;
       document.getElementById("submitBtn").innerHTML = "Send Message";
     }
+  };
+
+  const handleCaptchaChange = (value) => {
+    setCaptchaValue(value); // Store the CAPTCHA response
   };
 
   return (
@@ -152,8 +157,8 @@ const Contact = () => {
         <div className="container mx-auto px-4 lg:px-20">
           <form onSubmit={handleSubmit}>
             <div className="bg-white p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl">
-              <h1 className="font-bold text-center lg:text-left text-blue-900 uppercase text-4xl">Reach Out for a Free Estimate</h1>
-              <p className="my-3 text text-gray-600 font-semibold text-left text-justify">Thinking about remodeling your kitchen or bathroom? Leverage Swaminarayan Construction's years of expertise to bring your vision to life. Simply fill out our online form today to schedule a personalized in-home consultation and receive an accurate cost estimate.</p>
+              <h1 className="font-bold text-center lg:text-left text-blue-900 uppercase text-4xl">Get In Touch</h1>
+              <h3 className="my-3 text-xl text-gray-600 font-semibold text-left text-justify">Have a kitchen or bathroom remodeling project in mind? Let Swaminarayan Construction’ years of knowledge and experience work for you. Fill out our online form now to schedule your in-home consultation and cost estimate.</h3>
               <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
                 {["name", "lastname", "email", "phone"].map((field) => (
                   <div key={field}>
@@ -164,9 +169,10 @@ const Contact = () => {
                       id={field}
                       name={field}
                       className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none"
-                      type={field === "email" ? "email" : field === "phone" ? "number" : "text"}
+                      type={field === "email" ? "email" : "text"}
                       value={formData[field]}
                       onChange={handleChange}
+                      onKeyPress={field === "phone" || field === "zip" ? handleKeyPress : null}
                     />
                     {errors[field] && <p className="text-red-500 text-sm">{errors[field]}</p>}
                   </div>
@@ -219,9 +225,10 @@ const Contact = () => {
                       id={field}
                       name={field}
                       className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none"
-                      type={field === "zip" ? "number" : "text"}
+                      type="text"
                       value={formData[field]}
                       onChange={handleChange}
+                      onKeyPress={field === "zip" ? handleKeyPress : null}
                     />
                     {errors[field] && <p className="text-red-500 text-sm">{errors[field]}</p>}
                   </div>
@@ -241,9 +248,8 @@ const Contact = () => {
                 >
                   <option value=""></option>
                   <option value="Social Media">Social Media</option>
-                  <option value="Google">Google Search</option>
+                  <option value="Google Search">Google Search</option>
                   <option value="Referral">Referral</option>
-                  <option value="Magazine">Magazine</option>
                   <option value="Others">Others</option>
                 </select>
                 {errors.media && <p className="text-red-500 text-sm">{errors.media}</p>}
@@ -261,6 +267,7 @@ const Contact = () => {
                 {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
               </div>
 
+              {/* reCAPTCHA */}
               <div className="mt-5">
                 <ReCAPTCHA
                   sitekey={process.env.REACT_APP_RECAPTCHA_SITEKEY}
@@ -274,7 +281,6 @@ const Contact = () => {
                   type="submit"
                   id="submitBtn"
                   className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700"
-                  disabled={!isCaptchaVerified} // Disable the submit button based on CAPTCHA verification
                 >
                   Send Message
                 </button>

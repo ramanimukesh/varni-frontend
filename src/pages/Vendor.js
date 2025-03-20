@@ -3,7 +3,8 @@ import NavBar from "../components/Navbar/NavBar";
 import Footer from "../components/Footer";
 import { useDocTitle } from "../components/CustomHook";
 import Notiflix from "notiflix";
-import {userVendor } from "../Connection/api";
+import { userVendor } from "../Connection/api";
+import ReCAPTCHA from "react-google-recaptcha"; // Import ReCAPTCHA component
 
 const services = [
   "Plumber",
@@ -30,6 +31,7 @@ const Vendor = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const [captchaValue, setCaptchaValue] = useState(null); // Store captcha response
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -44,6 +46,12 @@ const Vendor = () => {
         newErrors[key] = `${key.charAt(0).toUpperCase() + key.slice(1)} is required`;
       }
     });
+
+    // Add captcha validation
+    if (!captchaValue) {
+      newErrors.captcha = "Please complete the CAPTCHA";
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -56,10 +64,15 @@ const Vendor = () => {
       await userVendor(formData);
       Notiflix.Report.success("Success", "Your message has been sent successfully!", "Okay");
       setFormData({ name: "", company: "", address: "", phone: "", service: "", message: "" });
+      setCaptchaValue(null); // Reset captcha after successful submission
       setErrors({});
     } catch (error) {
       Notiflix.Report.failure("Error", error.response?.data?.message || "An error occurred", "Okay");
     }
+  };
+
+  const onCaptchaChange = (value) => {
+    setCaptchaValue(value); // Set captcha value when user completes CAPTCHA
   };
 
   return (
@@ -107,6 +120,15 @@ const Vendor = () => {
                   ))}
                 </select>
                 {errors.service && <p className="text-red-500 text-sm">{errors.service}</p>}
+              </div>
+
+              {/* CAPTCHA */}
+              <div className="mt-4">
+                <ReCAPTCHA
+                  sitekey={process.env.REACT_APP_RECAPTCHA_SITEKEY} // Replace with your site key
+                  onChange={onCaptchaChange}
+                />
+                {errors.captcha && <p className="text-red-500 text-sm">{errors.captcha}</p>}
               </div>
             </div>
 
