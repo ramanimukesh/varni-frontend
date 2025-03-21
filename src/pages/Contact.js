@@ -4,7 +4,6 @@ import Footer from "../components/Footer";
 import { useDocTitle } from "../components/CustomHook";
 import Notiflix from "notiflix";
 import { userContact } from "../Connection/api";
-import ReCAPTCHA from "react-google-recaptcha"; // Import reCAPTCHA
 
 const Contact = () => {
   useDocTitle("SWC");
@@ -32,11 +31,8 @@ const Contact = () => {
     service: "",
     project: "",
     media: "",
-    message: "",
-    captcha: ""
+    message: ""
   });
-
-  const [captchaValue, setCaptchaValue] = useState(null); // State to store CAPTCHA response
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -103,15 +99,6 @@ const Contact = () => {
         formValid = false;
       }
     });
-
-    if (!captchaValue) {
-      setErrors((prevErrors) => ({
-        ...prevErrors,
-        captcha: "Please complete the CAPTCHA"
-      }));
-      formValid = false;
-    }
-
     return formValid;
   };
 
@@ -137,17 +124,12 @@ const Contact = () => {
         project: "",
         media: ""
       });
-      setCaptchaValue(null); // Reset CAPTCHA
     } catch (error) {
       Notiflix.Report.failure("Error", error.response?.data?.message || "An error occurred", "Okay");
     } finally {
       document.getElementById("submitBtn").disabled = false;
       document.getElementById("submitBtn").innerHTML = "Send Message";
     }
-  };
-
-  const handleCaptchaChange = (value) => {
-    setCaptchaValue(value); // Store the CAPTCHA response
   };
 
   return (
@@ -265,15 +247,6 @@ const Contact = () => {
                   onChange={handleChange}
                 />
                 {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
-              </div>
-
-              {/* reCAPTCHA */}
-              <div className="mt-5">
-                <ReCAPTCHA
-                  sitekey={process.env.REACT_APP_RECAPTCHA_SITEKEY}
-                  onChange={handleCaptchaChange}
-                />
-                {errors.captcha && <p className="text-red-500 text-sm">{errors.captcha}</p>}
               </div>
 
               <div className="mt-8">
