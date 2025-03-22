@@ -17,6 +17,9 @@ import Laundry from './pages/Services/Laundry';
 import Quartz from './pages/Services/Quartz';
 import Flooring from './pages/Services/Flooring';
 import Vendor from './pages/Vendor';
+import Basement from './pages/Services/Basement';
+import Deck from './pages/Services/Deck';
+import Roof from './pages/Services/Roof';
 
 function App() {
   useEffect(() => {
@@ -44,6 +47,9 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/vendor" element={<Vendor/>}/>
             <Route path= "/kitchen" element={<Kitchen/>}/>
+            <Route path= "/basement" element={<Basement/>}/>
+            <Route path= "/deck" element={<Deck/>}/>
+            <Route path= "/roof" element={<Roof/>}/>
             <Route path= "/bathroom" element={<Bathroom/>}/>
             <Route path= "/laundry" element={<Laundry/>}/>
             <Route path= "/flooring" element={<Flooring/>}/>

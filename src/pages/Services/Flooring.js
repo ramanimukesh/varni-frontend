@@ -98,7 +98,7 @@ const Flooring = () => {
             <h2 className="my-2 text-3xl text-blue-900 uppercase font-bold text-center">
               Flooring Remodeling
             </h2>
-            <h3 className="text-3xl text-blue-900 font-bold text-center">
+            <h3 className="text-3xl text-blue-900 font-bold text-left">
               Transform Your Flooring with the Best Remodeling Contractor in
               Atlanta, GA
             </h3>

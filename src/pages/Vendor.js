@@ -3,7 +3,8 @@ import NavBar from "../components/Navbar/NavBar";
 import Footer from "../components/Footer";
 import { useDocTitle } from "../components/CustomHook";
 import Notiflix from "notiflix";
-import {userVendor } from "../Connection/api";
+import {userVendor } from "../api/nodejs-api.js";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const services = [
   "Plumber",
@@ -19,6 +20,8 @@ const services = [
 
 const Vendor = () => {
   useDocTitle("SWC");
+
+  const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -37,20 +40,32 @@ const Vendor = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+   const handleCaptchaChange = (value) => {
+      setFormData({ ...formData, captcha: value });
+      setIsCaptchaVerified(!!value); // Set the captcha verification state
+      /*if (name === "phone" && !/^[0-9]*$/.test(value)) return;
+      setFormData({ ...formData, [name]: value });*/
+   };
+
   const validateForm = () => {
+    let formValid = true;
     let newErrors = {};
     Object.keys(formData).forEach((key) => {
-      if (!formData[key]) {
+      if (!formData[key] && key !== "captcha") {
         newErrors[key] = `${key.charAt(0).toUpperCase() + key.slice(1)} is required`;
+        formValid = false;
       }
     });
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    return formValid  || Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
+
+     document.getElementById("submitBtn").disabled = true;
+     document.getElementById("submitBtn").innerHTML = "Sending...";
 
     try {
       await userVendor(formData);
@@ -59,6 +74,9 @@ const Vendor = () => {
       setErrors({});
     } catch (error) {
       Notiflix.Report.failure("Error", error.response?.data?.message || "An error occurred", "Okay");
+    } finally {
+        document.getElementById("submitBtn").disabled = false;
+        document.getElementById("submitBtn").innerHTML = " Message sent successfully.";
     }
   };
 
@@ -110,8 +128,18 @@ const Vendor = () => {
               </div>
             </div>
 
+             <div className="mt-5">
+                <ReCAPTCHA
+                  sitekey={process.env.REACT_APP_RECAPTCHA_SITEKEY}
+                  onChange={handleCaptchaChange}
+                />
+                {errors.captcha && <p className="text-red-500 text-sm">{errors.captcha}</p>}
+             </div>
+
             <div className="mt-8">
-              <button type="submit" className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700">
+              <button type="submit" id="submitBtn"
+                className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700"
+                disabled={!isCaptchaVerified}>
                 Send Message
               </button>
             </div>

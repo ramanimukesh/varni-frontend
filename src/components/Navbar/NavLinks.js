@@ -61,7 +61,7 @@ const NavLinks = ({ scrollToTop }) => {
           onClick={() => setIsOpen((prev) => !prev)}
           ref={buttonRef}
         >
-          SERVICES
+          SERVICES ▼
         </button>
 
         {isOpen && (
@@ -70,8 +70,11 @@ const NavLinks = ({ scrollToTop }) => {
               { label: "Kitchen Remodeling", id: "service1", path: "/kitchen" },
               { label: "Bathroom Remodeling", id: "service2", path: "/bathroom" },
               { label: "Laundry Room Remodeling", id: "service3", path: "/laundry" },
-              { label: "Flooring", id: "service4", path: "/flooring" },
-              { label: "Quartz", id: "service5", path: "/quartz" },
+              { label: "Basement Remodeling", id: "service4", path: "/basement" },
+              { label: "Deck & Fencing", id: "service5", path: "/deck" },
+              { label: "Roof Replacement", id: "service6", path: "/roof" },
+              { label: "Flooring", id: "service7", path: "/flooring" },
+              { label: "Quartz", id: "service8", path: "/quartz" },
             ].map(({ label, id, path }) => (
               <li key={id}>
                 <Link

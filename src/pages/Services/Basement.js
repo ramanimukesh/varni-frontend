@@ -12,7 +12,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Footer from "../../components/Footer";
 
-const Quartz = () => {
+const Basement = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -49,7 +49,7 @@ const Quartz = () => {
               />
               <div className="absolute inset-0 flex flex-col justify-center items-center text-center bg-black bg-opacity-50">
                 <h1 className="mb-5 md:text-5xl text-3xl font-bold text-white">
-                  Quartz Remodeling in Atlanta Georgia
+                  Basement Remodeling in Atlanta Georgia
                 </h1>
                 <div className="mb-4 space-x-0 md:space-x-2 md:mb-8">
                   <Link
@@ -96,10 +96,10 @@ const Quartz = () => {
             data-aos-delay="500"
           >
             <h2 className="my-2 text-3xl text-blue-900 uppercase font-bold">
-              Quartz Remodeling
+              Basemnt Remodeling
             </h2>
             <h3 className="text-3xl text-blue-900 font-bold">
-              Transform Your Quartz with the Best Remodeling Contractor in
+              Transform Your Basement with the Best Remodeling Contractor in
               Atlanta, GA
             </h3>
             <div>
@@ -144,7 +144,7 @@ const Quartz = () => {
       <section data-aos="zoom-in-down">
         <div className="my-4 py-4">
           <h2 className="my-2 text-center text-3xl text-blue-900 uppercase font-bold ">
-            Luxury Quartz Remodeling From A-Z with attention to the smallest
+            Luxury Basement Remodeling From A-Z with attention to the smallest
             detail
           </h2>
 
@@ -171,12 +171,28 @@ const Quartz = () => {
         </div>
       </section>
 
+      <section data-aos="zoom-in-down">
+        <div className="my-4 py-4">
+          <h2 className="my-2 text-center text-3xl text-blue-900 uppercase font-bold">
+            WHAT WE DO
+          </h2>
+          <div className="flex justify-center">
+            <div className="w-24 border-b-4 border-blue-900"></div>
+          </div>
+          <h2 className="mt-4 mx-12 text-center text-xl lg:text-2xl font-semibold text-blue-900">
+            Experience The Ultimate In Luxury With Our Bathroom Remodels
+          </h2>
+        </div>
+
+        <div className="px-12" data-aos="fade-down" data-aos-delay="600"></div>
+      </section>
+
       <div className="mt-10 mb-16 flex flex-col items-center text-center">
         <h2 className="my-4 text-3xl text-blue-900 uppercase font-bold">
-          Scheduling & Consultation for Quartz Renovation
+          Scheduling & Consultation for Basement Renovation
         </h2>
         <p className="w-3/4 text-lg text-gray-700">
-        "Swaminarayan Construction and Remodeling offers expert quartz remodeling services, perfect for those seeking elegance and durability. Quartz surfaces provide a sleek, modern look while being low-maintenance and highly functional. Whether upgrading countertops or backsplashes, we ensure your space combines beauty with long-lasting quality."
+        "Swaminarayan Construction and Remodeling offers expert basement remodeling services, perfect for those seeking elegance and durability. Basement surfaces provide a sleek, modern look while being low-maintenance and highly functional. Whether upgrading countertops or backsplashes, we ensure your space combines beauty with long-lasting quality."
         </p>
         <Link
           to="/contact"
@@ -201,4 +217,4 @@ const Quartz = () => {
     </>
   );
 };
-export default Quartz;
+export default Basement;
