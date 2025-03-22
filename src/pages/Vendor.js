@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import NavBar from "../components/Navbar/NavBar";
 import Footer from "../components/Footer";
 import { useDocTitle } from "../components/CustomHook";
-import Notiflix from "notiflix";
 import {userVendor } from "../api/nodejs-api.js";
 import ReCAPTCHA from "react-google-recaptcha";
 
@@ -43,8 +42,6 @@ const Vendor = () => {
    const handleCaptchaChange = (value) => {
       setFormData({ ...formData, captcha: value });
       setIsCaptchaVerified(!!value); // Set the captcha verification state
-      /*if (name === "phone" && !/^[0-9]*$/.test(value)) return;
-      setFormData({ ...formData, [name]: value });*/
    };
 
   const validateForm = () => {
@@ -63,21 +60,33 @@ const Vendor = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
+    
+     var submitButton = document.getElementById("submitBtn");
 
-     document.getElementById("submitBtn").disabled = true;
-     document.getElementById("submitBtn").innerHTML = "Sending...";
+     submitButton.disabled = true;
+     submitButton.innerHTML = "Sending...";
 
     try {
-      await userVendor(formData);
-      Notiflix.Report.success("Success", "Your message has been sent successfully!", "Okay");
-      setFormData({ name: "", company: "", address: "", phone: "", service: "", message: "" });
-      setErrors({});
+      // API call to submit the form data
+      const response = await userVendor(formData);
+      if (response.status === 201) {
+          submitButton.style.backgroundColor = "#4CAF50"; // Change to green
+          submitButton.innerHTML = "Message sent successfully.";
+
+          setFormData({ name: "", company: "", address: "", phone: "", service: "", message: "" });
+          setErrors({});
+       } else {
+          throw new Error(response.data.message || "An error occurred");
+       }
     } catch (error) {
-      Notiflix.Report.failure("Error", error.response?.data?.message || "An error occurred", "Okay");
-    } finally {
-        document.getElementById("submitBtn").disabled = false;
-        document.getElementById("submitBtn").innerHTML = " Message sent successfully.";
+        submitButton.style.backgroundColor = "#F44336"; // Change to red
+        submitButton.innerHTML = "Unable to submit.";
     }
+     // Set a timeout to change the button label back after 2 seconds
+     setTimeout(function() {
+         submitButton.style.backgroundColor = ""; // Change to original
+         submitButton.innerHTML = "Submit"; // Change back to the original label
+     }, 2000); // 2000 milliseconds = 2 seconds
   };
 
   return (
@@ -86,7 +95,8 @@ const Vendor = () => {
       <div className="flex justify-center items-center mt-8 w-full bg-white py-12 lg:py-24">
         <div className="container mx-auto px-4 lg:px-20">
           <form onSubmit={handleSubmit} className="bg-white p-8 rounded-2xl shadow-2xl lg:w-9/12">
-            <h1 className="font-bold text-center text-blue-900 uppercase text-4xl">Get In Touch</h1>
+            <h1 className="font-bold text-center text-blue-900 uppercase text-4xl">Unlock B2B Partnership</h1>
+            <p className="my-3 text text-gray-600 font-semibold text-left text-justify">Unlock exciting business opportunities and take your company to new heights through a strategic partnership. By submitting the form, you'll gain access to exclusive benefits and resources tailored to help your business thrive. Don’t miss out on the chance to collaborate with a trusted partner committed to mutual growth. Fill out the form today and let’s create success together!</p>
             <div className="grid grid-cols-1 gap-5 mt-5">
               {["name", "company", "address", "phone", "message"].map((field) => (
                 <div key={field}>
@@ -140,7 +150,7 @@ const Vendor = () => {
               <button type="submit" id="submitBtn"
                 className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700"
                 disabled={!isCaptchaVerified}>
-                Send Message
+                Submit
               </button>
             </div>
           </form>

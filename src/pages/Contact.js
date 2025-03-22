@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import NavBar from "../components/Navbar/NavBar";
 import Footer from "../components/Footer";
 import { useDocTitle } from "../components/CustomHook";
-import Notiflix from "notiflix";
 import { userContact } from "../api/nodejs-api.js";
 import ReCAPTCHA from "react-google-recaptcha";
 
@@ -112,15 +111,20 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
+    
+    var submitButton =  document.getElementById("submitBtn");
 
-    document.getElementById("submitBtn").disabled = true;
-    document.getElementById("submitBtn").innerHTML = "Sending...";
+    submitButton.disabled = true;
+    submitButton.innerHTML = "Sending...";
 
     try {
       // API call to submit the form data
       const response = await userContact(formData);
       if (response.status === 201) {
-        Notiflix.Report.success("Success", "Your message has been sent successfully!", "Okay");
+
+        submitButton.style.backgroundColor = "#4CAF50"; // Change to green
+        submitButton.innerHTML = "Message sent successfully.";
+
         setFormData({
           name: "",
           lastname: "",
@@ -138,11 +142,14 @@ const Contact = () => {
         throw new Error(response.data.message || "An error occurred");
       }
     } catch (error) {
-      Notiflix.Report.failure("Error", error.response?.data?.message || "An error occurred", "Okay");
-    } finally {
-      document.getElementById("submitBtn").disabled = false;
-      document.getElementById("submitBtn").innerHTML = " Message sent successfully.";
+        submitButton.style.backgroundColor = "#F44336"; // Change to red
+        submitButton.innerHTML = "Unable to submit message.";
     }
+     // Set a timeout to change the button label back after 2 seconds
+     setTimeout(function() {
+         submitButton.style.backgroundColor = ""; // Change to original
+         submitButton.innerHTML = "Submit"; // Change back to the original label
+     }, 2000); // 2000 milliseconds = 2 seconds
   };
 
   return (
@@ -152,7 +159,7 @@ const Contact = () => {
         <div className="container mx-auto px-4 lg:px-20">
           <form onSubmit={handleSubmit}>
             <div className="bg-white p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl">
-              <h1 className="font-bold text-center lg:text-left text-blue-900 uppercase text-4xl">Reach Out for a Free Estimate</h1>
+              <h1 className="font-bold text-center text-blue-900 uppercase text-4xl">Reach Out for a Free Estimate</h1>
               <p className="my-3 text text-gray-600 font-semibold text-left text-justify">Thinking about remodeling your kitchen or bathroom? Leverage Swaminarayan Construction's years of expertise to bring your vision to life. Simply fill out our online form today to schedule a personalized in-home consultation and receive an accurate cost estimate.</p>
               <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
                 {["name", "lastname", "email", "phone"].map((field) => (
@@ -261,22 +268,23 @@ const Contact = () => {
                 {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
               </div>
 
-              <div className="mt-5">
+             <div className="mt-5">
                 <ReCAPTCHA
                   sitekey={process.env.REACT_APP_RECAPTCHA_SITEKEY}
                   onChange={handleCaptchaChange}
                 />
                 {errors.captcha && <p className="text-red-500 text-sm">{errors.captcha}</p>}
-              </div>
+             </div>
 
               <div className="mt-8">
                 <button
                   type="submit"
                   id="submitBtn"
                   className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700"
-                  disabled={!isCaptchaVerified} // Disable the submit button based on CAPTCHA verification
-                >
-                  Send Message
+                  // Disable the submit button based on CAPTCHA verification
+                  disabled={!isCaptchaVerified}
+                  >
+                  Submit
                 </button>
               </div>
             </div>
