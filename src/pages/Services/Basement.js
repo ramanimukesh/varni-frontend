@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import NavBar from "../../components/Navbar/NavBar";
-import img1 from "../../images/Quartz/quartz1.jpg";
-import img2 from "../../images/Quartz/quartz2.jpg";
-import img3 from "../../images/Quartz/quartz3.jpg";
-import img4 from "../../images/Quartz/quartz4.jpg";
-import img5 from "../../images/Quartz/quartz5.jpg";
-import img6 from "../../images/Quartz/quartz6.jpg";
+import img1 from "../../images/Basement/image1.png";
+import img2 from "../../images/Basement/image2.jpg";
+import img3 from "../../images/Basement/image3.png";
+import img4 from "../../images/Basement/image4.jpg";
+import img5 from "../../images/Basement/image5.jpg";
+import img6 from "../../images/Basement/image6.jpg";
+import img7 from "../../images/Basement/image7.jpg";
+
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -151,7 +153,7 @@ const Basement = () => {
           <div className="flex justify-center">
             <div className="px-12" data-aos="fade-down" data-aos-delay="600">
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                {[img1, img2, img3, img4, img5, img6].map((img, index) => (
+                {[img1, img2, img3, img4, img6, img7].map((img, index) => (
                   <div
                     key={index}
                     className="bg-white transition-all ease-in-out duration-400 overflow-hidden text-gray-700 hover:bg-gray-500 hover:text-white rounded-lg shadow-2xl p-3 group"
@@ -169,22 +171,6 @@ const Basement = () => {
             </div>
           </div>
         </div>
-      </section>
-
-      <section data-aos="zoom-in-down">
-        <div className="my-4 py-4">
-          <h2 className="my-2 text-center text-3xl text-blue-900 uppercase font-bold">
-            WHAT WE DO
-          </h2>
-          <div className="flex justify-center">
-            <div className="w-24 border-b-4 border-blue-900"></div>
-          </div>
-          <h2 className="mt-4 mx-12 text-center text-xl lg:text-2xl font-semibold text-blue-900">
-            Experience The Ultimate In Luxury With Our Bathroom Remodels
-          </h2>
-        </div>
-
-        <div className="px-12" data-aos="fade-down" data-aos-delay="600"></div>
       </section>
 
       <div className="mt-10 mb-16 flex flex-col items-center text-center">
