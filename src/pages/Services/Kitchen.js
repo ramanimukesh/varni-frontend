@@ -167,46 +167,6 @@ const Kitchen = () => {
         </div>
       </section>
 
-      {/* <div>
-        <h2 className="my-2 text-center text-3xl text-blue-900 uppercase font-bold mb-4">
-          Kitchen Design Styles
-        </h2>
-        <div className="w-full bg-gray-100">
-          <div className="bg-white w-full h-auto px-6 py-10 text-gray-700 text-center shadow-2xl">
-            <h2 className="font-semibold mb-4 text-4xl">
-              Modern Kitchen Style
-            </h2>
-            <p className="text-lg font-medium">
-              Sleek, clean lines, minimalism, and a focus on functionality
-              define modern kitchen design. You are providing your kitchen with
-              a more opulent and seductive appearance.
-            </p>
-          </div>
-          <div className="bg-white w-full h-auto px-6 py-10 text-gray-700 text-center shadow-2xl mt-6">
-            <h2 className="font-semibold mb-4 text-4xl">
-              Transitional Kitchen Style
-            </h2>
-            <p className="text-lg font-medium">
-              A transitional kitchen is a well-liked design that combines
-              traditional and modern components. It gives a balanced and
-              timeless appearance, fusing traditional and contemporary elements
-              to produce a peaceful environment.
-            </p>
-          </div>
-          <div className="bg-white w-full h-auto px-6 py-10 text-gray-700 text-center shadow-2xl mt-6">
-            <h2 className="font-semibold mb-4 text-4xl">
-              Contemporary Kitchen Style
-            </h2>
-            <p className="text-lg font-medium">
-              Contemporary style is a current or modern approach to design,
-              building, fashion, or art. It is distinguished by its focus on
-              clarity, minimalism, and clean lines while adding contemporary and
-              futuristic aesthetic elements.
-            </p>
-          </div>
-        </div>
-      </div> */}
-
       <div className="w-full py-12 bg-gray-100">
         <h2 className="my-4 text-3xl text-blue-900 uppercase font-bold text-center">
           Kitchen Design Styles

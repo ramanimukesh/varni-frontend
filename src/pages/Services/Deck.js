@@ -50,7 +50,7 @@ const Deck = () => {
               />
               <div className="absolute inset-0 flex flex-col justify-center items-center text-center bg-black bg-opacity-50">
                 <h1 className="mb-5 md:text-5xl text-3xl font-bold text-white">
-                  Quartz Remodeling in Atlanta Georgia
+                  Deck & Fencing Remodeling in Atlanta Georgia
                 </h1>
                 <div className="mb-4 space-x-0 md:space-x-2 md:mb-8">
                   <Link
@@ -97,25 +97,25 @@ const Deck = () => {
             data-aos-delay="500"
           >
             <h2 className="my-2 text-3xl text-blue-900 uppercase font-bold">
-              Quartz Remodeling
+              Deck & Fencing Remodeling
             </h2>
             <h3 className="text-3xl text-blue-900 font-bold">
-              Transform Your Quartz with the Best Remodeling Contractor in
+              Transform Your Deck & Fencing with the Best Remodeling Contractor in
               Atlanta, GA
             </h3>
             <div>
               <p className="my-3 text-xl text-gray-600 font-semibold text-left">
-                Transform your outdated bathroom interiors into a stunning oasis
+                Transform your outdated deck & fencing interiors into a stunning oasis
                 with Swaminarayan Construction! Don’t let your morning routine
-                be ruined by an uninviting and crumbling bathroom. As your
+                be ruined by an uninviting and crumbling deck & fencing. As your
                 trusted partner for Home Remodelling Services in Atlanta
-                Georgia, we specialize in delivering impeccable bathroom
+                Georgia, we specialize in delivering impeccable deck & fencing
                 renovation solutions that are sure to impress. Our experienced
                 team of accredited remodelers has been winning the hearts of
                 countless homeowners in Atlanta Georgia for years with their
                 exceptional workmanship, attention to detail, and commitment to
                 completing projects on time and within budget. We understand
-                that every bathroom has its unique set of requirements, and we
+                that every deck & fencing has its unique set of requirements, and we
                 take the time to understand your needs and preferences to
                 deliver a customized and functional space. From high-quality
                 fittings to stunning interiors, we’ve got you covered.
@@ -145,7 +145,7 @@ const Deck = () => {
       <section data-aos="zoom-in-down">
         <div className="my-4 py-4">
           <h2 className="my-2 text-center text-3xl text-blue-900 uppercase font-bold ">
-            Luxury Bathroom Remodeling From A-Z with attention to the smallest
+            Luxury Deck & Fencing Remodeling From A-Z with attention to the smallest
             detail
           </h2>
 

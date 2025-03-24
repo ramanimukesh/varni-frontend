@@ -106,17 +106,17 @@ const Basement = () => {
             </h3>
             <div>
               <p className="my-3 text-xl text-gray-600 font-semibold text-left">
-                Transform your outdated bathroom interiors into a stunning oasis
+                Transform your outdated basement interiors into a stunning oasis
                 with Swaminarayan Construction! Don’t let your morning routine
-                be ruined by an uninviting and crumbling bathroom. As your
+                be ruined by an uninviting and crumbling basement. As your
                 trusted partner for Home Remodelling Services in Atlanta
-                Georgia, we specialize in delivering impeccable bathroom
+                Georgia, we specialize in delivering impeccable basement
                 renovation solutions that are sure to impress. Our experienced
                 team of accredited remodelers has been winning the hearts of
                 countless homeowners in Atlanta Georgia for years with their
                 exceptional workmanship, attention to detail, and commitment to
                 completing projects on time and within budget. We understand
-                that every bathroom has its unique set of requirements, and we
+                that every basement has its unique set of requirements, and we
                 take the time to understand your needs and preferences to
                 deliver a customized and functional space. From high-quality
                 fittings to stunning interiors, we’ve got you covered.
