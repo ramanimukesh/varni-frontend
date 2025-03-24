@@ -165,7 +165,8 @@ const Contact = () => {
                 {["name", "lastname", "email", "phone"].map((field) => (
                   <div key={field}>
                     <label htmlFor={field} className="block text-gray-700">
-                      {field === "name" ? "First Name" : field === "lastname" ? "Last Name" : field.charAt(0).toUpperCase() + field.slice(1)} *
+                      {field === "name" ? "First Name" : field === "lastname" ? "Last Name" : field.charAt(0).toUpperCase() + field.slice(1)}
+                      <span className="required-asterisk"> *</span>
                     </label>
                     <input
                       id={field}
@@ -184,7 +185,8 @@ const Contact = () => {
                 {["service", "project"].map((field) => (
                   <div key={field}>
                     <label htmlFor={field} className="block text-gray-700">
-                      {field === "service" ? "Select a Service" : "When are you planning to start your project?"} *
+                      {field === "service" ? "Select a Service" : "When are you planning to start your project?"}
+                      <span className="required-asterisk"> *</span>
                     </label>
                     <select
                       id={field}
@@ -220,7 +222,8 @@ const Contact = () => {
                 {["address", "zip"].map((field) => (
                   <div key={field}>
                     <label htmlFor={field} className="block text-gray-700">
-                      {field === "address" ? "Home Address" : "Zip Code"} *
+                      {field === "address" ? "Home Address" : "Zip Code"}
+                      <span className="required-asterisk"> *</span>
                     </label>
                     <input
                       id={field}
@@ -237,7 +240,7 @@ const Contact = () => {
 
               <div className="mt-5">
                 <label htmlFor="media" className="block text-gray-700">
-                  How did you hear about us? *
+                  How did you hear about us? <span className="required-asterisk"> *</span>
                 </label>
                 <select
                   id="media"
@@ -257,7 +260,7 @@ const Contact = () => {
               </div>
 
               <div className="mt-5">
-                <label htmlFor="message" className="block text-gray-700">Message *</label>
+                <label htmlFor="message" className="block text-gray-700">Message <span className="required-asterisk"> *</span></label>
                 <textarea
                   id="message"
                   name="message"
