@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { Phone } from "lucide-react";
-import '../styles/tooltip.css';
+import "../styles/tooltip.css";
 
 const Footer = () => {
   return (
@@ -38,51 +38,79 @@ const Footer = () => {
 
             {/* 3rd block */}
             <div className="col-span-6 md:col-span-6 lg:col-span-4 mx-auto">
-              <h6 className="text-[#013289] text-xl font-bold mb-4">
+              <h6 className="text-[#013289] text-xl font-bold mb-4 text-center">
                 OUR SERVICES
               </h6>
-              <ul className="text-md">
+              <div className="grid grid-cols-2 gap-4">
+                <ul className="text-md">
+                  <li className="mb-2">
+                    <Link
+                      to="/kitchen"
+                      className="text-[#013289] hover:text-gray-900 transition duration-250 ease-in-out"
+                    >
+                      Kitchen Remodeling
+                    </Link>
+                  </li>
+                  <li className="mb-2">
+                    <Link
+                      to="/bathroom"
+                      className="text-[#013289] hover:text-gray-900 transition duration-250 ease-in-out"
+                    >
+                      Bathroom Remodeling
+                    </Link>
+                  </li>
+                  <li className="mb-2">
+                    <Link
+                      to="/laundry"
+                      className="text-[#013289] hover:text-gray-900 transition duration-250 ease-in-out"
+                    >
+                      Laundry Room Remodeling
+                    </Link>
+                  </li>
+                  <li className="mb-2">
+                    <Link
+                      to="/deck"
+                      className="text-[#013289] hover:text-gray-900 transition duration-250 ease-in-out"
+                    >
+                      Deck & Fencing
+                    </Link>
+                  </li>
+                </ul>
+                <ul className="text-md">
                 <li className="mb-2">
-                  <Link
-                    to="/kitchen"
-                    className="text-[#013289] hover:text-gray-900 transition duration-250 ease-in-out"
-                  >
-                    Kitchen Remodeling
-                  </Link>
-                </li>
-                <li className="mb-2">
-                  <Link
-                    to="/bathroom"
-                    className="text-[#013289] hover:text-gray-900 transition duration-250 ease-in-out"
-                  >
-                    Bathroom Remodeling
-                  </Link>
-                </li>
-                <li className="mb-2">
-                  <Link
-                    to="/laundry"
-                    className="text-[#013289] hover:text-gray-900 transition duration-250 ease-in-out"
-                  >
-                    Laundry Room Remodeling
-                  </Link>
-                </li>
-                <li className="mb-2">
-                  <Link
-                    to="/flooring"
-                    className="text-[#013289] hover:text-gray-900 transition duration-250 ease-in-out"
-                  >
-                    Flooring
-                  </Link>
-                </li>
-                <li className="mb-2">
-                  <Link
-                    to="/quartz"
-                    className="text-[#013289] hover:text-gray-900 transition duration-250 ease-in-out"
-                  >
-                    Quartz
-                  </Link>
-                </li>
-              </ul>
+                    <Link
+                      to="/basement"
+                      className="text-[#013289] hover:text-gray-900 transition duration-250 ease-in-out"
+                    >
+                      Basement Remodeling
+                    </Link>
+                  </li>
+                  <li className="mb-2">
+                    <Link
+                      to="/roof"
+                      className="text-[#013289] hover:text-gray-900 transition duration-250 ease-in-out"
+                    >
+                      Roof Remodeling
+                    </Link>
+                  </li>
+                  <li className="mb-2">
+                    <Link
+                      to="/flooring"
+                      className="text-[#013289] hover:text-gray-900 transition duration-250 ease-in-out"
+                    >
+                      Flooring
+                    </Link>
+                  </li>
+                  <li className="mb-2">
+                    <Link
+                      to="/quartz"
+                      className="text-[#013289] hover:text-gray-900 transition duration-250 ease-in-out"
+                    >
+                      Quartz
+                    </Link>
+                  </li>
+                </ul>
+              </div>
             </div>
 
             {/* 4th block */}
@@ -90,18 +118,18 @@ const Footer = () => {
               <div className="text-xl mb-6">Contact Us</div>
 
               <div className="text-md font-medium mb-6 flex items-center">
-                 <Phone className="w-5 h-5 mr-2" />
-                 <label htmlFor="phone" className="tooltip">
-                      855-557-9264
-                      {/* Tooltip Text */}
-                      <span className="tooltip-text">
-                        {/* Phone Icon and Text */}
-                        <span className="tooltip-icon">
-                          <Phone className="w-5 h-5" />
-                        </span>
-                        <span className="tooltip-text-content">855-55-SWAMI</span>
-                      </span>
-                 </label>
+                <Phone className="w-5 h-5 mr-2" />
+                <label htmlFor="phone" className="tooltip">
+                  855-557-9264
+                  {/* Tooltip Text */}
+                  <span className="tooltip-text">
+                    {/* Phone Icon and Text */}
+                    <span className="tooltip-icon">
+                      <Phone className="w-5 h-5" />
+                    </span>
+                    <span className="tooltip-text-content">855-55-SWAMI</span>
+                  </span>
+                </label>
               </div>
 
               <div className="mx-auto text-center mt-2">
