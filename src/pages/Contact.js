@@ -35,7 +35,7 @@ const Contact = () => {
     project: "",
     media: "",
     message: "",
-    captcha: "" // Error for CAPTCHA
+    captcha: "" 
   });
 
   const handleChange = (e) => {
@@ -271,13 +271,13 @@ const Contact = () => {
                 {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
               </div>
 
-             <div className="mt-5">
+             {/* <div className="mt-5">
                 <ReCAPTCHA
                   sitekey={process.env.REACT_APP_RECAPTCHA_SITEKEY}
                   onChange={handleCaptchaChange}
                 />
                 {errors.captcha && <p className="text-red-500 text-sm">{errors.captcha}</p>}
-             </div>
+             </div> */}
 
               <div className="mt-8">
                 <button
@@ -285,7 +285,7 @@ const Contact = () => {
                   id="submitBtn"
                   className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700"
                   // Disable the submit button based on CAPTCHA verification
-                  disabled={!isCaptchaVerified}
+                  // disabled={!isCaptchaVerified}
                   >
                   Submit
                 </button>

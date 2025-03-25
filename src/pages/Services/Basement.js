@@ -8,7 +8,6 @@ import img4 from "../../images/Basement/image4.jpg";
 import img5 from "../../images/Basement/image5.jpg";
 import img6 from "../../images/Basement/image6.jpg";
 import img7 from "../../images/Basement/image7.jpg";
-
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

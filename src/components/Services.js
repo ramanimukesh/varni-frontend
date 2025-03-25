@@ -7,6 +7,7 @@ import img4 from "../images/Flooring/vinyl-floor.jpg";
 import img5 from "../images/Basement/image2.jpg";
 import img6 from "../images/Deck/image1.jpg";
 import img7 from "../images/Roof/image4.jpg";
+import img8 from "../images/Quartz/quartz6.jpg"
 
 const Services = () => {
   return (
@@ -188,7 +189,7 @@ const Services = () => {
                 <img
                   alt="card img"
                   className="w-full h-80 object-cover rounded-t group-hover:scale-[1.15] transition duration-1000 ease-in-out"
-                  src={img}
+                  src={img8}
                 />
                 <h2 className="font-semibold my-6 text-2xl text-center">
                   <Link to="/quartz" className="hover:text-gray-300">
