@@ -177,7 +177,7 @@ const Footer = () => {
               </Link>
 
               <Link
-                to="rutvikramani32@gmail.com"
+                to="swaminarayanconstructionllc@gmail.com"
                 className="text-blue-900 hover:text-gray-500 transition duration-150 ease-in-out"
                 aria-label="Email"
               >
