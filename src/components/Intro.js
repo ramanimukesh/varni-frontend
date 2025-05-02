@@ -29,17 +29,9 @@ const Intro = () => {
             </h2>
             <div>
               <p className="my-3 text-xl text-gray-600 font-semibold">
-                Swaminarayan Construction is recognized as Georgia’s most
-                skilled and detail-oriented kitchen installation expert. Based
-                in Atlanta, GA, our team of carpenters brings over 5 years of
-                combined experience to every project. Founded by a dedicated
-                husband-and-wife team, we are a fully licensed, bonded, and
-                insured remodeling contractor specializing in kitchen
-                remodeling, bathroom remodeling, and flooring. For years, we’ve
-                been transforming homes with stunning kitchen and bathroom
-                designs that exceed expectations. At Swaminarayan Construction, we pride ourselves
-                on offering exceptional prices and top-notch installation
-                services for cabinets, countertops, and flooring.
+                Swaminarayan Construction is Georgia’s trusted expert in precision kitchen installations. Located in Atlanta, GA, our skilled team of carpenters brings over five years of combined experience to each project. Founded by a passionate and experienced group, we are a fully licensed, bonded, and insured remodeling contractor specializing in kitchen and bathroom renovations, flooring, basement finishing, handyman and more.
+
+                For years, we've been elevating homes with exceptional kitchen and bathroom designs that consistently exceed expectations. At Swaminarayan Construction, we take pride in delivering outstanding value through competitive pricing and superior installation services for cabinets, countertops, flooring, and beyond.
               </p>
 
               <h3 className="text-3xl text-blue-900 font-bold">
